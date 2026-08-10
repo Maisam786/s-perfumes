@@ -1,0 +1,851 @@
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: var(--z-header);
+
+    padding: 24px 0;
+
+    transition:
+        padding var(--transition-medium);
+}
+
+/* =========================================================
+   HEADER CONTAINER
+========================================================= */
+
+.header-container {
+    display: grid;
+
+    grid-template-columns: 180px 1fr 180px;
+
+    align-items: center;
+
+    padding: 16px 34px;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+
+    background: transparent;
+
+    transition:
+        padding var(--transition-medium),
+        background-color var(--transition-medium),
+        border-color var(--transition-medium),
+        box-shadow var(--transition-medium);
+}
+
+/* =========================================================
+   SCROLLED HEADER
+========================================================= */
+
+.header.scrolled {
+    padding: 16px 0;
+}
+
+.header.scrolled .header-container {
+    background: rgba(20, 18, 16, 0.84);
+
+    border-color: rgba(255, 255, 255, 0.06);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 14px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    width: fit-content;
+
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+
+    width: 40px;
+    height: auto;
+
+    transition:
+        width var(--transition-medium),
+        transform var(--transition-medium);
+}
+
+.header.scrolled .logo img {
+    width: 44px;
+}
+
+/* =========================================================
+   DESKTOP NAVIGATION
+========================================================= */
+
+.desktop-nav {
+    display: flex;
+
+    align-items: center;
+
+    justify-self: center;
+
+    gap: 42px;
+}
+
+.desktop-nav a,
+.mega-trigger {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--color-cream);
+
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast);
+}
+
+.desktop-nav a:hover,
+.mega-trigger:hover,
+.desktop-nav a.active {
+    color: var(--color-primary-light);
+}
+
+/* =========================================================
+   NAV UNDERLINE
+========================================================= */
+
+.desktop-nav a::after,
+.mega-trigger::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: -9px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: var(--radius-pill);
+
+    background: var(--color-primary);
+
+    transform: translateX(-50%);
+
+    transition:
+        width var(--transition-medium);
+}
+
+.desktop-nav a:hover::after,
+.desktop-nav a.active::after,
+.mega-trigger:hover::after {
+    width: 100%;
+}
+
+/* =========================================================
+   MEGA MENU TRIGGER
+========================================================= */
+
+.mega-parent {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+.mega-trigger svg {
+    transition:
+        transform var(--transition-fast);
+}
+
+.mega-parent:hover .mega-trigger svg {
+    transform: rotate(180deg);
+}
+
+.mega-parent::after {
+    content: "";
+
+    position: absolute;
+
+    top: 100%;
+    left: -35px;
+
+    width: calc(100% + 70px);
+    height: 30px;
+}
+
+/* =========================================================
+   HEADER ACTIONS
+========================================================= */
+
+.header-icons {
+    display: flex;
+
+    align-items: center;
+
+    justify-self: end;
+
+    gap: 12px;
+}
+
+.icon-btn {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+    height: 46px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    color: var(--color-cream);
+
+    font-size: 18px;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.icon-btn:hover {
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+    transform: translate3d(0, -3px, 0);
+}
+
+/* =========================================================
+   CART / WISHLIST BADGE
+========================================================= */
+
+.cart span {
+    position: absolute;
+
+    top: -3px;
+    right: -3px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   MOBILE DEFAULT
+========================================================= */
+
+.mobile-toggle,
+.mobile-only,
+.mobile-menu-footer {
+    display: none;
+}
+
+/* =========================================================
+   TABLET / MOBILE HEADER
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header-container {
+        grid-template-columns: 60px 1fr auto;
+    }
+
+    /* =====================================================
+       MOBILE TOGGLE
+    ===================================================== */
+
+    .mobile-toggle {
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        justify-self: start;
+
+        order: 1;
+
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+        margin-left: -4px;
+
+        border: 0;
+
+        background: transparent;
+
+        color: var(--color-white);
+
+        cursor: pointer;
+
+        z-index: calc(var(--z-header) + 10);
+    }
+
+    /*
+       Three animated lines.
+       The middle line fades away.
+    */
+
+    .mobile-toggle span {
+        position: absolute;
+
+        left: 50%;
+
+        width: 22px;
+        height: 2px;
+
+        border-radius: 999px;
+
+        background: currentColor;
+
+        transform: translateX(-50%);
+
+        transition:
+            transform 0.45s cubic-bezier(.16, 1, .3, 1),
+            opacity 0.25s ease,
+            width 0.35s ease;
+    }
+
+    .mobile-toggle span:nth-child(1) {
+        transform:
+            translateX(-50%)
+            translateY(-7px);
+    }
+
+    .mobile-toggle span:nth-child(2) {
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+
+    .mobile-toggle span:nth-child(3) {
+        transform:
+            translateX(-50%)
+            translateY(7px);
+    }
+
+    /* =====================================================
+       ANIMATED X
+    ===================================================== */
+
+    .mobile-toggle.is-open span:nth-child(1) {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(45deg);
+    }
+
+    .mobile-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+
+        transform:
+            translateX(-50%)
+            scaleX(0);
+    }
+
+    .mobile-toggle.is-open span:nth-child(3) {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(-45deg);
+    }
+
+    /* =====================================================
+       LOGO
+    ===================================================== */
+
+    .logo {
+        justify-self: center;
+
+        order: 2;
+    }
+
+    .logo img {
+        width: 42px;
+    }
+
+    /* =====================================================
+       HEADER ICONS
+    ===================================================== */
+
+    .header-icons {
+        order: 3;
+
+        gap: 10px;
+    }
+
+    /*
+       Wishlist remains visible on desktop,
+       but moves into the mobile menu.
+    */
+
+    .header-icons a[href="/wishlist"] {
+        display: none;
+    }
+
+    /* =====================================================
+       MOBILE MENU PANEL
+    ===================================================== */
+
+    .desktop-nav {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: min(340px, 88vw);
+        height: 100dvh;
+
+        display: flex;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        padding: 100px 0 30px;
+        margin: 0;
+
+        /*
+           Important:
+           No nested scrolling.
+        */
+        overflow: hidden;
+
+        border: 0;
+
+        border-right:
+            1px solid rgba(255, 255, 255, 0.06);
+
+        border-radius: 0;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(24, 21, 18, 0.98),
+                rgba(13, 11, 10, 0.99)
+            );
+
+        box-shadow:
+            25px 0 80px rgba(0, 0, 0, 0.35);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transform:
+            translate3d(-100%, 0, 0);
+
+        transition:
+            transform 0.55s cubic-bezier(.16, 1, .3, 1),
+            opacity 0.35s ease,
+            visibility 0.55s;
+
+        pointer-events: none;
+
+        z-index: calc(var(--z-header) - 1);
+    }
+
+    .desktop-nav.active {
+        padding: 100px 0 30px;
+
+        opacity: 1;
+        visibility: visible;
+        border-radius: 22px;
+
+        transform:
+            translate3d(0, 0, 0);
+
+        pointer-events: auto;
+    }
+
+    /* =====================================================
+       MOBILE NAV ITEMS
+    ===================================================== */
+
+    .desktop-nav a {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        padding: 18px 28px;
+
+        border-bottom:
+            1px solid rgba(255, 255, 255, 0.05);
+
+        font-size: 15px;
+    }
+
+    .desktop-nav a::after,
+    .mega-trigger::after {
+        display: none;
+    }
+
+    .desktop-nav .mobile-only {
+        display: flex;
+    }
+
+    /* =====================================================
+       HIDE COLLECTIONS ONLY INSIDE MOBILE MENU
+    ===================================================== */
+
+    .desktop-nav .mega-parent {
+        display: none;
+    }
+
+    /* =====================================================
+       MOBILE MENU FOOTER
+    ===================================================== */
+
+    .mobile-menu-footer {
+        display: block;
+
+        margin-top: auto;
+
+        padding: 28px 24px 18px;
+
+        border-top:
+            1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-menu-footer p {
+        margin: 0;
+
+        color: var(--color-primary-light);
+
+        font-family:
+            "Cormorant Garamond",
+            serif;
+
+        font-size: 13px;
+
+        letter-spacing: 1.5px;
+
+        text-align: center;
+
+        text-transform: uppercase;
+    }
+
+    /* =====================================================
+       SCROLLED HEADER
+    ===================================================== */
+
+    .header.scrolled .header-container {
+        padding: 14px 20px;
+    }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 16px 0;
+    }
+
+    .header.scrolled {
+        padding: 12px 0;
+    }
+
+    .header-container {
+        grid-template-columns: 52px 1fr auto;
+    }
+
+    .header.scrolled .header-container {
+        padding: 12px 16px;
+
+        border-radius: var(--radius-md);
+    }
+
+    .logo img {
+        width: 40px;
+    }
+
+    .mobile-toggle {
+        width: 40px;
+        height: 40px;
+
+        margin-left: -5px;
+    }
+
+    .mobile-toggle span {
+        width: 21px;
+    }
+
+    .icon-btn {
+        width: 42px;
+        height: 42px;
+
+        font-size: 17px;
+    }
+
+    .desktop-nav {
+        width: min(340px, 88vw);
+    }
+}
+
+/* =========================================================
+   EXTRA COMPACT DEVICES
+   Galaxy Z Fold / narrow screens
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .header {
+        padding: 12px 0;
+    }
+
+    .header-container {
+        grid-template-columns: 42px 1fr auto;
+
+        padding: 10px 12px;
+
+        border-radius: 18px;
+    }
+
+    .mobile-toggle {
+        width: 36px;
+        height: 36px;
+
+        margin-left: -6px;
+    }
+
+    .mobile-toggle span {
+        width: 19px;
+        height: 2px;
+    }
+
+    .mobile-toggle span:nth-child(1) {
+        transform:
+            translateX(-50%)
+            translateY(-6px);
+    }
+
+    .mobile-toggle span:nth-child(3) {
+        transform:
+            translateX(-50%)
+            translateY(6px);
+    }
+
+    .mobile-toggle.is-open span:nth-child(1) {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(45deg);
+    }
+
+    .mobile-toggle.is-open span:nth-child(3) {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(-45deg);
+    }
+
+    .logo img {
+        width: 34px;
+    }
+
+    .header-icons {
+        gap: 6px;
+    }
+
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+
+        font-size: 15px;
+    }
+
+    .cart span {
+        width: 15px;
+        height: 15px;
+
+        top: -2px;
+        right: -2px;
+
+        font-size: 8px;
+    }
+
+    /* Compact mobile panel */
+
+    .desktop-nav {
+        width: min(290px, 88vw);
+
+        padding-top: 86px;
+    }
+
+    .desktop-nav.active {
+        padding-top: 86px;
+    }
+
+    .desktop-nav a {
+        padding: 14px 20px;
+
+        font-size: 14px;
+    }
+
+    .mobile-menu-footer {
+        padding: 20px 16px 14px;
+    }
+
+    .mobile-menu-footer p {
+        font-size: 11px;
+
+        letter-spacing: 1.2px;
+    }
+}
+
+/* =========================================================
+   VERY NARROW FOLD DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .header-container {
+        grid-template-columns: 38px 1fr auto;
+
+        padding: 8px 10px;
+    }
+
+    .mobile-toggle {
+        width: 32px;
+        height: 32px;
+
+        margin-left: -5px;
+    }
+
+    .mobile-toggle span {
+        width: 18px;
+    }
+
+    .mobile-toggle span:nth-child(1) {
+        transform:
+            translateX(-50%)
+            translateY(-5px);
+    }
+
+    .mobile-toggle span:nth-child(3) {
+        transform:
+            translateX(-50%)
+            translateY(5px);
+    }
+
+    .mobile-toggle.is-open span:nth-child(1) {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(45deg);
+    }
+
+    .mobile-toggle.is-open span:nth-child(3) {
+        transform:
+            translateX(-50%)
+            translateY(0)
+            rotate(-45deg);
+    }
+
+    .logo img {
+        width: 30px;
+    }
+
+    .header-icons {
+        gap: 4px;
+    }
+
+    .icon-btn {
+        width: 32px;
+        height: 32px;
+
+        font-size: 14px;
+    }
+
+    .desktop-nav {
+        width: calc(100vw - 20px);
+
+        padding-top: 78px;
+    }
+
+    .desktop-nav.active {
+        padding-top: 78px;
+    }
+
+    .desktop-nav a {
+        padding: 12px 16px;
+
+        font-size: 13px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .header,
+    .header-container,
+    .logo img,
+    .desktop-nav,
+    .desktop-nav a,
+    .mega-trigger,
+    .icon-btn,
+    .mobile-toggle span {
+        transition: none;
+    }
+}

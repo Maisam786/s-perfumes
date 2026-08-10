@@ -1,0 +1,169 @@
+/* =========================================================
+   SIZE SELECTOR
+========================================================= */
+
+.size-selector {
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.size-selector h4 {
+    margin: 0 0 14px;
+
+    color: rgba(255, 255, 255, 0.84);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    letter-spacing: 0.25px;
+}
+
+
+/* =========================================================
+   SIZE OPTIONS
+========================================================= */
+
+.sizes {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+/* =========================================================
+   SIZE BUTTON
+========================================================= */
+
+.size {
+    position: relative;
+
+    min-width: 78px;
+    min-height: 44px;
+
+    padding: 0 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(31, 28, 25, 0.92),
+            rgba(22, 19, 17, 0.92)
+        );
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        color 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.size:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(201, 170, 113, 0.32);
+
+    background:
+        rgba(201, 170, 113, 0.07);
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   ACTIVE
+========================================================= */
+
+.size.active {
+    border-color:
+        rgba(201, 170, 113, 0.65);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            rgba(181, 140, 90, 0.92)
+        );
+
+    color: #17130f;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 24px rgba(181, 140, 90, 0.14);
+}
+
+
+/* =========================================================
+   ACTIVE HOVER
+========================================================= */
+
+.size.active:hover {
+    transform: translateY(-2px);
+
+    color: #17130f;
+
+    border-color:
+        rgba(201, 170, 113, 0.75);
+
+    box-shadow:
+        0 14px 28px rgba(181, 140, 90, 0.20);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.size:focus-visible {
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(201, 170, 113, 0.14);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .size-selector {
+        margin-top: 26px;
+    }
+
+    .sizes {
+        gap: 8px;
+    }
+
+    .size {
+        min-width: 72px;
+        min-height: 42px;
+
+        padding: 0 17px;
+
+        font-size: 12px;
+    }
+
+}

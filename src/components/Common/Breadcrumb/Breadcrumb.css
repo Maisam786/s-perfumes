@@ -1,0 +1,182 @@
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+.breadcrumb {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    margin: 30px 0 50px;
+
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 13px;
+
+    line-height: 1.4;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.breadcrumb-link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    flex-shrink: 0;
+
+    min-height: 32px;
+
+    padding: 5px 2px;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    text-decoration: none;
+
+    transition:
+        color var(--transition-medium),
+        transform var(--transition-medium);
+
+}
+
+
+.breadcrumb-link:hover {
+
+    color: var(--color-primary);
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =========================================================
+   HOME ICON
+========================================================= */
+
+.breadcrumb-home svg {
+
+    width: 14px;
+
+    height: 14px;
+
+    color: rgba(255, 255, 255, 0.38);
+
+    transition:
+        color var(--transition-medium);
+}
+
+
+.breadcrumb-home:hover svg {
+
+    color: var(--color-primary);
+
+}
+
+
+/* =========================================================
+   SEPARATORS
+========================================================= */
+
+.breadcrumb-separator {
+
+    flex-shrink: 0;
+
+    width: 15px;
+
+    height: 15px;
+
+    color: rgba(255, 255, 255, 0.20);
+
+}
+
+
+/* =========================================================
+   CURRENT PAGE
+========================================================= */
+
+.breadcrumb-current {
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    color: rgba(255, 255, 255, 0.88);
+
+    font-weight: 500;
+
+    text-overflow: ellipsis;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .breadcrumb {
+
+        gap: 7px;
+
+        margin: 20px 0 34px;
+
+        font-size: 12px;
+
+    }
+
+
+    .breadcrumb-link {
+
+        min-height: 36px;
+
+    }
+
+
+    .breadcrumb-separator {
+
+        width: 13px;
+
+        height: 13px;
+
+    }
+
+
+    .breadcrumb-home span {
+
+        display: none;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .breadcrumb {
+
+        margin-bottom: 28px;
+
+    }
+
+}

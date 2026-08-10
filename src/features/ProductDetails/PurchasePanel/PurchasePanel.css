@@ -1,0 +1,240 @@
+/* =========================================================
+   PURCHASE PANEL
+========================================================= */
+
+.purchase-panel {
+    margin-top: 42px;
+}
+
+
+/* =========================================================
+   PURCHASE BUTTONS
+========================================================= */
+
+.purchase-buttons {
+    display: grid;
+
+    grid-template-columns: 1fr 64px;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+.add-cart-btn {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    height: 62px;
+
+    padding: 0 28px;
+
+    border: 1px solid rgba(201, 170, 113, 0.65);
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--color-primary),
+            rgba(181, 140, 90, 0.92)
+        );
+
+    color: #17130f;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 14px 30px rgba(181, 140, 90, 0.14);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.add-cart-btn svg {
+    width: 18px;
+    height: 18px;
+
+    transition:
+        transform 0.35s ease;
+}
+
+.add-cart-btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 18px 38px rgba(181, 140, 90, 0.22);
+}
+
+.add-cart-btn:hover svg {
+    transform: translateX(2px);
+}
+
+.add-cart-btn:active {
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+.wishlist-large {
+    width: 62px;
+    height: 62px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: #1A1715;
+
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition:
+        transform .35s ease,
+        background .35s ease,
+        color .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.wishlist-large svg {
+    font-size: 21px;
+}
+
+.wishlist-large:hover {
+    transform: translateY(-3px);
+
+    border-color: rgba(181,140,90,.45);
+
+    background: rgba(181,140,90,.12);
+
+    color: var(--color-primary);
+}
+
+.wishlist-large.active {
+    background: var(--color-primary);
+
+    color: #111;
+
+    border-color: var(--color-primary);
+
+    box-shadow:
+        0 12px 30px rgba(181,140,90,.25);
+}
+
+.wishlist-large.active:hover {
+    background: var(--color-primary-light);
+
+    color: #111;
+}
+
+
+/* =========================================================
+   PURCHASE FEATURES
+========================================================= */
+
+.purchase-features {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 28px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+.purchase-features div {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    min-height: 48px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.045);
+
+    color: rgba(255, 255, 255, 0.58);
+
+    font-size: 13px;
+
+    transition:
+        color 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.purchase-features div:last-child {
+    border-bottom: none;
+}
+
+.purchase-features div:hover {
+    padding-left: 4px;
+
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.purchase-features svg {
+    flex-shrink: 0;
+
+    width: 17px;
+    height: 17px;
+
+    color: var(--color-primary);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .purchase-panel {
+        margin-top: 34px;
+    }
+
+    .purchase-buttons {
+        grid-template-columns: 1fr 58px;
+        gap: 10px;
+    }
+
+    .add-cart-btn {
+        height: 58px;
+
+        padding: 0 20px;
+
+        font-size: 14px;
+    }
+
+    .wishlist-large {
+        width: 58px;
+        height: 58px;
+    }
+
+    .purchase-features {
+        margin-top: 24px;
+    }
+
+}

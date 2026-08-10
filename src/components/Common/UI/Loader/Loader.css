@@ -1,0 +1,228 @@
+/* =========================================
+   LOADER
+========================================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        rgba(20, 17, 15, 0.82);
+
+    /*
+     * Blurs everything behind the loader.
+     */
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    /*
+     * Prevent interaction with the page.
+     */
+    pointer-events: all;
+
+    /*
+     * Fade away when removed.
+     */
+    animation: loaderFadeIn 0.45s ease forwards;
+}
+
+
+/* =========================================
+   LOGO WRAPPER
+========================================= */
+
+.loader-logo-wrap {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 150px;
+}
+
+
+/* =========================================
+   SUBTLE GOLDEN ATMOSPHERE
+========================================= */
+
+.loader-logo-wrap::before {
+    content: "";
+
+    position: absolute;
+    inset: 12px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, 0.13),
+            rgba(201, 170, 113, 0.04) 45%,
+            transparent 72%
+        );
+
+    filter: blur(12px);
+
+    animation:
+        logoGlow 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   SVG LOGO
+========================================= */
+
+.loader-logo {
+    position: relative;
+
+    z-index: 1;
+
+    width: 88px;
+    height: 88px;
+
+    object-fit: contain;
+
+    /*
+     * Keeps the SVG sharp.
+     */
+    display: block;
+
+    transform-origin: center;
+
+    animation:
+        logoReveal 1.2s cubic-bezier(.22, 1, .36, 1) both,
+        logoFloat 2.8s ease-in-out 1.2s infinite;
+}
+
+
+/* =========================================
+   LOGO REVEAL
+========================================= */
+
+@keyframes logoReveal {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.72)
+            translateY(8px);
+
+        filter:
+            blur(8px)
+            drop-shadow(
+                0 0 0 rgba(201, 170, 113, 0)
+            );
+    }
+
+    55% {
+        opacity: 1;
+
+        transform:
+            scale(1.04)
+            translateY(0);
+
+        filter:
+            blur(0)
+            drop-shadow(
+                0 0 28px rgba(201, 170, 113, 0.25)
+            );
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+
+        filter:
+            blur(0)
+            drop-shadow(
+                0 0 18px rgba(201, 170, 113, 0.16)
+            );
+    }
+}
+
+
+/* =========================================
+   SUBTLE FLOAT
+========================================= */
+
+@keyframes logoFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translateY(-5px)
+            scale(1.015);
+    }
+}
+
+
+/* =========================================
+   GLOW
+========================================= */
+
+@keyframes logoGlow {
+
+    0%,
+    100% {
+        opacity: 0.55;
+        transform: scale(0.92);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+
+/* =========================================
+   LOADER APPEAR
+========================================= */
+
+@keyframes loaderFadeIn {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .loader-logo,
+    .loader-logo-wrap::before {
+        animation: none;
+    }
+
+    .loader {
+        animation: none;
+    }
+}

@@ -1,0 +1,358 @@
+/* =========================================================
+   CART PAGE
+========================================================= */
+
+.cart-page {
+    position: relative;
+
+    min-height: 100svh;
+
+    padding:
+        150px
+        0
+        100px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+        radial-gradient(
+            circle at 85% 10%,
+            rgba(201, 170, 113, .045),
+            transparent 32%
+        ),
+        var(--color-background);
+}
+
+
+/* =========================================================
+   ATMOSPHERIC GLOWS
+========================================================= */
+
+.cart-page-glow {
+    position: absolute;
+
+    width: 620px;
+    height: 620px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, .08),
+            rgba(201, 170, 113, .025) 42%,
+            transparent 72%
+        );
+
+    filter: blur(60px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+.cart-page-glow--top {
+    top: -360px;
+    right: -260px;
+}
+
+.cart-page-glow--bottom {
+    bottom: -430px;
+    left: -300px;
+
+    opacity: .65;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.cart-page .container {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.cart-header {
+    max-width: 760px;
+
+    margin-bottom: 58px;
+}
+
+.cart-eyebrow {
+    display: block;
+
+    margin-bottom: 14px;
+
+    color: var(--color-primary-light);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+}
+
+.cart-title {
+    margin: 0 0 16px;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(
+        3rem,
+        5vw,
+        4.5rem
+    );
+
+    font-weight: 500;
+
+    line-height: .95;
+
+    letter-spacing: -2px;
+}
+
+.cart-description {
+    max-width: 560px;
+
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   CART LAYOUT
+========================================================= */
+
+.cart-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.8fr)
+        minmax(300px, .8fr);
+
+    align-items: start;
+
+    gap: 48px;
+}
+
+
+/* =========================================================
+   ITEMS SECTION
+========================================================= */
+
+.cart-items {
+    min-width: 0;
+}
+
+.cart-items-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        0
+        2px
+        14px;
+
+    border-bottom:
+        1px solid
+        rgba(255, 255, 255, .08);
+
+    color:
+        rgba(255, 255, 255, .42);
+
+    font-size: 9px;
+    font-weight: 600;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+}
+
+.cart-items-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    padding-top: 18px;
+}
+
+
+/* =========================================================
+   SUMMARY WRAPPER
+========================================================= */
+
+.cart-summary-wrapper {
+    position: sticky;
+
+    top: 110px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .cart-layout {
+        grid-template-columns:
+            minmax(0, 1.65fr)
+            minmax(280px, .85fr);
+
+        gap: 34px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .cart-page {
+        padding:
+            130px
+            0
+            80px;
+    }
+
+    .cart-header {
+        margin-bottom: 46px;
+    }
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .cart-summary-wrapper {
+        position: relative;
+
+        top: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .cart-page {
+        padding:
+            110px
+            0
+            70px;
+    }
+
+    .cart-header {
+        margin-bottom: 38px;
+    }
+
+    .cart-eyebrow {
+        margin-bottom: 12px;
+
+        font-size: 9px;
+
+        letter-spacing: 3px;
+    }
+
+    .cart-title {
+        margin-bottom: 14px;
+
+        font-size: clamp(
+            2.8rem,
+            12vw,
+            3.7rem
+        );
+
+        letter-spacing: -1.5px;
+    }
+
+    .cart-description {
+        max-width: 420px;
+
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .cart-layout {
+        gap: 32px;
+    }
+
+    .cart-items-header {
+        padding-bottom: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .cart-page {
+        padding:
+            100px
+            0
+            60px;
+    }
+
+    .cart-title {
+        font-size: 2.65rem;
+    }
+
+    .cart-description {
+        font-size: 13px;
+    }
+
+    .cart-items-list {
+        gap: 12px;
+
+        padding-top: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .cart-page-glow {
+        filter: none;
+    }
+
+}

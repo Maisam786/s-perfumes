@@ -1,0 +1,27 @@
+.product-details{
+
+    padding:140px 0;
+
+}
+
+.details-layout{
+
+    display:grid;
+
+    grid-template-columns:1.1fr .9fr;
+
+    gap:70px;
+
+    align-items:start;
+
+}
+
+@media(max-width:992px){
+
+    .details-layout{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

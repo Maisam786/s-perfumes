@@ -1,0 +1,228 @@
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    margin-top: 70px;
+    width: 100%;
+}
+
+
+/* =========================================================
+   PAGE GROUP
+========================================================= */
+
+.pagination-pages {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* =========================================================
+   BASE BUTTON
+========================================================= */
+
+.pagination-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    height: 48px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+
+    background: #1A1715;
+    color: rgba(255, 255, 255, 0.72);
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-medium),
+        background var(--transition-medium),
+        border-color var(--transition-medium),
+        color var(--transition-medium),
+        box-shadow var(--transition-medium);
+}
+
+
+/* =========================================================
+   NUMBER BUTTONS
+========================================================= */
+
+.pagination-number {
+    width: 48px;
+    padding: 0;
+}
+
+
+/* =========================================================
+   PREVIOUS / NEXT
+========================================================= */
+
+.pagination-prev,
+.pagination-next {
+    min-width: 110px;
+    padding: 0 18px;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.pagination-btn:not(:disabled):not(.active):hover {
+    transform: translateY(-2px);
+
+    background: #211D1A;
+
+    border-color: rgba(201, 170, 113, 0.35);
+
+    color: var(--color-primary);
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   ACTIVE PAGE
+========================================================= */
+
+.pagination-number.active {
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: #15120F;
+
+    box-shadow:
+        0 8px 24px rgba(201, 170, 113, 0.18);
+}
+
+
+/* =========================================================
+   ACTIVE HOVER
+========================================================= */
+
+.pagination-number.active:hover {
+    transform: translateY(-2px);
+
+    background: var(--color-primary-light);
+
+    border-color: var(--color-primary-light);
+
+    color: #111;
+}
+
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.pagination-btn:disabled {
+    opacity: 0.3;
+
+    cursor: not-allowed;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   KEYBOARD FOCUS
+========================================================= */
+
+.pagination-btn:focus-visible {
+    outline: 2px solid var(--color-primary);
+
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .pagination {
+        gap: 8px;
+
+        margin-top: 50px;
+    }
+
+    .pagination-pages {
+        gap: 6px;
+    }
+
+    .pagination-number {
+        width: 42px;
+        height: 42px;
+    }
+
+    .pagination-prev,
+    .pagination-next {
+        min-width: 42px;
+        width: 42px;
+        height: 42px;
+
+        padding: 0;
+    }
+
+    .pagination-prev span:not([aria-hidden="true"]),
+    .pagination-next span:not([aria-hidden="true"]) {
+        display: none;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .pagination-number {
+        width: 38px;
+        height: 38px;
+    }
+
+    .pagination-prev,
+    .pagination-next {
+        width: 38px;
+        height: 38px;
+    }
+
+    .pagination-pages {
+        gap: 4px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pagination-btn {
+        transition: none;
+    }
+
+}

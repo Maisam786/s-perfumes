@@ -1,0 +1,929 @@
+/* =========================================
+   SUCCESS PAGE
+========================================= */
+
+.success-page {
+
+    min-height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(212,175,55,.10),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            #17130f 0%,
+            #0f0e0d 48%,
+            #0b0b0a 100%
+        );
+
+    color:var(--color-cream);
+
+}
+
+
+/* =========================================
+   BACKGROUND ATMOSPHERE
+========================================= */
+
+.success-orb {
+
+    position:absolute;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    filter:blur(100px);
+
+    opacity:.18;
+
+}
+
+.success-orb-1 {
+
+    width:420px;
+
+    height:420px;
+
+    top:-180px;
+
+    left:-160px;
+
+    background:#D4AF37;
+
+}
+
+.success-orb-2 {
+
+    width:360px;
+
+    height:360px;
+
+    right:-160px;
+
+    bottom:-160px;
+
+    background:#765525;
+
+}
+
+.success-grid {
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.45;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:48px 48px;
+
+    mask-image:
+        radial-gradient(
+            ellipse at center,
+            black 0%,
+            transparent 75%
+        );
+
+}
+
+
+/* =========================================
+   SECTION
+========================================= */
+
+.success-section {
+
+    width:100%;
+
+    position:relative;
+
+    z-index:2;
+
+    padding:120px 20px;
+
+}
+
+.success-container {
+
+    width:100%;
+
+    max-width:760px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+}
+
+
+/* =========================================
+   SUCCESS MARK
+========================================= */
+
+.success-mark-wrap {
+
+    position:relative;
+
+    width:112px;
+
+    height:112px;
+
+    margin:0 auto 42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    animation:successEntrance .9s cubic-bezier(.16,1,.3,1);
+
+}
+
+.success-mark {
+
+    width:82px;
+
+    height:82px;
+
+    border-radius:50%;
+
+    padding:2px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5d67a,
+            #D4AF37,
+            #9b7424
+        );
+
+    box-shadow:
+        0 0 0 1px rgba(212,175,55,.25),
+        0 18px 55px rgba(212,175,55,.20),
+        inset 0 1px 0 rgba(255,255,255,.35);
+
+}
+
+.success-mark-inner {
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#12100d;
+
+    color:#D4AF37;
+
+    animation:checkReveal .6s .35s both cubic-bezier(.16,1,.3,1);
+
+}
+
+
+/* Rings */
+
+.success-ring {
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid rgba(212,175,55,.22);
+
+    pointer-events:none;
+
+}
+
+.success-ring-outer {
+
+    inset:0;
+
+    animation:
+        ringReveal 1.4s .1s both ease-out,
+        ringPulse 4s 1.5s infinite ease-in-out;
+
+}
+
+.success-ring-middle {
+
+    inset:9px;
+
+    border-color:rgba(212,175,55,.15);
+
+    animation:
+        ringReveal 1.1s .2s both ease-out;
+
+}
+
+
+/* =========================================
+   TYPOGRAPHY
+========================================= */
+
+.success-label {
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    color:var(--color-primary);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+    animation:fadeUp .8s .35s both;
+
+}
+
+.success-container h1 {
+
+    margin:0 0 28px;
+
+    font-size:clamp(
+        44px,
+        7vw,
+        76px
+    );
+
+    line-height:1.04;
+
+    letter-spacing:-1.5px;
+
+    font-weight:600;
+
+    animation:fadeUp .9s .45s both;
+
+}
+
+.success-description {
+
+    max-width:620px;
+
+    margin:0 auto;
+
+    color:#D4D0CB;
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    animation:fadeUp .9s .55s both;
+
+}
+
+
+/* =========================================
+   CONFIRMATION CARD
+========================================= */
+
+.success-card {
+
+    margin:55px auto 0;
+
+    max-width:620px;
+
+    padding:34px;
+
+    text-align:left;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
+        );
+
+    border:1px solid rgba(212,175,55,.16);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.30),
+        inset 0 1px 0 rgba(255,255,255,.035);
+
+    backdrop-filter:blur(18px);
+
+    animation:cardReveal 1s .65s both;
+
+}
+
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.success-card-top {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+}
+
+.success-card-label {
+
+    display:block;
+
+    margin-bottom:9px;
+
+    color:#918a82;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:2.5px;
+
+}
+
+.success-card-top strong {
+
+    display:block;
+
+    color:#F2EEE8;
+
+    font-size:18px;
+
+    letter-spacing:1.5px;
+
+    font-weight:600;
+
+}
+
+.success-card-brand {
+
+    width:50px;
+
+    height:50px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#D4AF37;
+
+    font-family:serif;
+
+    font-size:24px;
+
+    font-style:italic;
+
+    border:1px solid rgba(212,175,55,.28);
+
+    background:rgba(212,175,55,.06);
+
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.success-divider {
+
+    width:100%;
+
+    height:1px;
+
+    margin:28px 0;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(212,175,55,.25),
+            transparent
+        );
+
+}
+
+
+/* =========================================
+   DETAILS
+========================================= */
+
+.success-details {
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:20px;
+
+}
+
+.success-detail {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.detail-icon {
+
+    width:42px;
+
+    height:42px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#D4AF37;
+
+    background:rgba(212,175,55,.07);
+
+    border:1px solid rgba(212,175,55,.12);
+
+}
+
+.success-detail span {
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#8F8982;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.8px;
+
+}
+
+.success-detail strong {
+
+    color:#E8E3DC;
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+
+/* =========================================
+   TRUST
+========================================= */
+
+.success-trust {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:28px;
+
+    padding-top:22px;
+
+    border-top:1px solid rgba(255,255,255,.055);
+
+    color:#9D978F;
+
+    font-size:12px;
+
+}
+
+.success-trust svg {
+
+    color:#D4AF37;
+
+    flex-shrink:0;
+
+}
+
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.success-actions {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:16px;
+
+    margin-top:34px;
+
+    animation:fadeUp .9s .85s both;
+
+}
+
+.success-primary-btn,
+.success-secondary-btn {
+
+    min-height:54px;
+
+    padding:0 28px;
+
+    border-radius:999px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    text-decoration:none;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+
+}
+
+.success-primary-btn {
+
+    color:#111;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3d16b,
+            #D4AF37
+        );
+
+    box-shadow:
+        0 12px 30px rgba(212,175,55,.16);
+
+}
+
+.success-primary-btn:hover {
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 18px 42px rgba(212,175,55,.30);
+
+}
+
+.success-secondary-btn {
+
+    color:#D8D3CC;
+
+    border:1px solid rgba(255,255,255,.12);
+
+    background:rgba(255,255,255,.025);
+
+}
+
+.success-secondary-btn:hover {
+
+    transform:translateY(-4px);
+
+    border-color:rgba(212,175,55,.38);
+
+    color:#F0ECE6;
+
+}
+
+
+/* =========================================
+   SIGNATURE
+========================================= */
+
+.success-signature {
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:15px;
+
+    margin-top:58px;
+
+    color:#706A63;
+
+    font-family:serif;
+
+    font-size:14px;
+
+    font-style:italic;
+
+    animation:fadeUp 1s 1s both;
+
+}
+
+.signature-line {
+
+    width:65px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            rgba(212,175,55,.35)
+        );
+
+}
+
+.signature-line:last-child {
+
+    background:
+        linear-gradient(
+            to left,
+            transparent,
+            rgba(212,175,55,.35)
+        );
+
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes successEntrance {
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.65);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes checkReveal {
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.3) rotate(-25deg);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1) rotate(0);
+
+    }
+
+}
+
+@keyframes ringReveal {
+
+    from {
+
+        opacity:0;
+
+        transform:scale(.65);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+
+        transform:scale(1);
+
+        opacity:.65;
+
+    }
+
+    50% {
+
+        transform:scale(1.08);
+
+        opacity:.2;
+
+    }
+
+}
+
+@keyframes cardReveal {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(30px) scale(.97);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:700px) {
+
+    .success-section {
+
+        padding:90px 18px;
+
+    }
+
+    .success-mark-wrap {
+
+        width:96px;
+
+        height:96px;
+
+        margin-bottom:34px;
+
+    }
+
+    .success-mark {
+
+        width:72px;
+
+        height:72px;
+
+    }
+
+    .success-container h1 {
+
+        font-size:clamp(40px,11vw,58px);
+
+    }
+
+    .success-description {
+
+        font-size:15px;
+
+    }
+
+    .success-card {
+
+        margin-top:42px;
+
+        padding:25px 20px;
+
+        border-radius:24px;
+
+    }
+
+    .success-details {
+
+        grid-template-columns:1fr;
+
+        gap:20px;
+
+    }
+
+    .success-actions {
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .success-primary-btn,
+    .success-secondary-btn {
+
+        width:100%;
+
+    }
+
+    .success-signature {
+
+        gap:10px;
+
+        font-size:13px;
+
+    }
+
+    .signature-line {
+
+        width:35px;
+
+    }
+
+}

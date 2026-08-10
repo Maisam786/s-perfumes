@@ -1,0 +1,1001 @@
+/* =========================================================
+   S. FRAGRANCE FINDER
+   FULLY NAMESPACED
+   Prefix: sc-finder-
+========================================================= */
+
+.sc-finder {
+    position: relative;
+
+    padding: var(--section-padding) 0;
+
+    overflow: hidden;
+
+    isolation: isolate;
+}
+
+.sc-finder::before {
+content: "";
+
+
+position: absolute;
+bottom: -782px;
+right: -300px;
+
+width: 900px;
+height: 900px;
+
+border-radius: 50%;
+
+background:
+    radial-gradient(
+        circle,
+        rgba(201, 170, 113, 0.10) 0%,
+        rgba(201, 170, 113, 0.045) 38%,
+        transparent 72%
+    );
+
+pointer-events: none;
+z-index: -1;
+
+animation: whyGlowTop 18s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   FINDER BOX
+========================================================= */
+
+.sc-finder-box {
+    position: relative;
+
+    overflow: hidden;
+
+    padding: clamp(48px, 6vw, 78px);
+
+    border: 1px solid var(--border-gold);
+
+    border-radius: var(--radius-lg);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(38, 31, 26, 0.94),
+            rgba(18, 16, 14, 0.97)
+        );
+
+    box-shadow: var(--shadow-card);
+
+    isolation: isolate;
+}
+
+/* Glow */
+
+
+
+/* =========================================================
+   AMBIENT GLOW
+========================================================= */
+
+.sc-finder-glow {
+    position: absolute;
+
+    width: 620px;
+    height: 620px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, 0.12),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+}
+
+.sc-finder-glow--top {
+    top: -420px;
+    right: -260px;
+}
+
+.sc-finder-glow--bottom {
+    bottom: -460px;
+    left: -300px;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.sc-finder-header {
+    max-width: 720px;
+
+    margin: 0 auto 52px;
+
+    text-align: center;
+}
+
+.sc-finder-eyebrow {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--color-primary);
+
+    font-size: var(--text-small);
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+}
+
+.sc-finder-header h2 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size:
+        clamp(
+            2.2rem,
+            4vw,
+            3.5rem
+        );
+
+    line-height: 1.08;
+
+    letter-spacing: -1.5px;
+}
+
+.sc-finder-header p {
+    max-width: 620px;
+
+    margin: 22px auto 0;
+
+    color: var(--text-secondary);
+
+    font-size: var(--text-body);
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.sc-finder-form {
+    position: relative;
+
+    z-index: 2;
+}
+
+.sc-finder-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 22px;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.sc-finder-field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.sc-finder-field > span {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.2px;
+}
+
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.sc-finder-field select {
+    width: 100%;
+
+    height: 60px;
+
+    padding: 0 18px;
+
+    border:
+        1px solid
+        var(--border-subtle);
+
+    border-radius: var(--radius-sm);
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: var(--text-primary);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        border-color
+        var(--transition-medium),
+        background
+        var(--transition-medium),
+        box-shadow
+        var(--transition-medium);
+}
+
+.sc-finder-field select:hover {
+    border-color:
+        var(--border-gold-hover);
+
+    background:
+        rgba(255, 255, 255, 0.05);
+}
+
+.sc-finder-field select:focus {
+    border-color:
+        var(--color-primary);
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(201, 170, 113, 0.08);
+}
+
+.sc-finder-field select option {
+    background:
+        var(--color-surface);
+
+    color:
+        var(--text-primary);
+}
+
+
+/* =========================================================
+   FIND BUTTON
+========================================================= */
+
+.sc-finder-button {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 260px;
+
+    height: 58px;
+
+    margin: 42px auto 0;
+
+    padding: 0 30px;
+
+    border: 1px solid transparent;
+
+    border-radius: 999px;
+
+    background:
+        var(--color-primary);
+
+    color: #14110f;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform
+        var(--transition-medium),
+        background
+        var(--transition-medium),
+        box-shadow
+        var(--transition-medium),
+        opacity
+        var(--transition-medium);
+}
+
+.sc-finder-button:hover:not(:disabled) {
+    transform:
+        translateY(-4px);
+
+    background:
+        var(--color-primary-light);
+
+    box-shadow:
+        0 18px 45px
+        rgba(201, 170, 113, 0.22);
+}
+
+.sc-finder-button:active:not(:disabled) {
+    transform:
+        translateY(-1px);
+}
+
+.sc-finder-button:disabled {
+    opacity: 0.42;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.sc-finder-results {
+    margin-top: 80px;
+
+    padding-top: 60px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    scroll-margin-top: 40px;
+}
+
+
+/* =========================================================
+   RESULTS HEADER
+========================================================= */
+
+.sc-finder-results-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 28px;
+}
+
+.sc-finder-results-header > div > span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color:
+        var(--color-primary);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.sc-finder-results-header h3 {
+    margin: 0;
+
+    color:
+        var(--text-primary);
+
+    font-family:
+        var(--font-heading);
+
+    font-size:
+        clamp(
+            1.7rem,
+            3vw,
+            2.4rem
+        );
+}
+
+.sc-finder-reset {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 15px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color:
+        var(--text-secondary);
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        border-color
+        var(--transition-medium),
+        color
+        var(--transition-medium),
+        background
+        var(--transition-medium);
+}
+
+.sc-finder-reset:hover {
+    border-color:
+        var(--border-gold-hover);
+
+    color:
+        var(--color-primary);
+
+    background:
+        rgba(201, 170, 113, 0.05);
+}
+
+
+/* =========================================================
+   RESULT GRID
+========================================================= */
+
+.sc-finder-results-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+}
+
+
+/* =========================================================
+   RESULT CARD
+========================================================= */
+
+.sc-finder-result {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        transform
+        var(--transition-medium),
+        border-color
+        var(--transition-medium),
+        background
+        var(--transition-medium);
+}
+
+.sc-finder-result:hover {
+    transform:
+        translateY(-5px);
+
+    border-color:
+        rgba(201, 170, 113, 0.28);
+
+    background:
+        rgba(255, 255, 255, 0.04);
+}
+
+.sc-finder-result.is-best-match {
+    border-color:
+        rgba(201, 170, 113, 0.35);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   RESULT IMAGE
+========================================================= */
+
+.sc-finder-result-image {
+    position: relative;
+
+    height: 270px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #29221b,
+            #151311
+        );
+}
+
+.sc-finder-result-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+
+    padding: 25px;
+
+    transition:
+        transform .6s ease;
+}
+
+.sc-finder-result:hover
+.sc-finder-result-image img {
+    transform:
+        scale(1.06);
+}
+
+
+/* =========================================================
+   BEST BADGE
+========================================================= */
+
+.sc-finder-best-badge {
+    position: absolute;
+
+    top: 15px;
+    left: 15px;
+
+    z-index: 2;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 7px 10px;
+
+    border-radius: 999px;
+
+    background:
+        var(--color-primary);
+
+    color:
+        #15120f;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================================
+   RESULT CONTENT
+========================================================= */
+
+.sc-finder-result-content {
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 22px;
+}
+
+.sc-finder-result-category {
+    margin-bottom: 7px;
+
+    color:
+        var(--color-primary);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.4px;
+
+    text-transform: uppercase;
+}
+
+.sc-finder-result-content h4 {
+    margin: 0;
+
+    color:
+        var(--text-primary);
+
+    font-family:
+        var(--font-heading);
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   MATCH SCORE
+========================================================= */
+
+.sc-finder-match {
+    margin-top: 15px;
+}
+
+.sc-finder-match > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color:
+        var(--color-primary);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.sc-finder-match > div {
+    width: 100%;
+
+    height: 4px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+.sc-finder-match > div > span {
+    display: block;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        var(--color-primary);
+}
+
+
+/* =========================================================
+   REASON
+========================================================= */
+
+.sc-finder-result-reason {
+    min-height: 60px;
+
+    margin: 16px 0 20px;
+
+    color:
+        var(--text-secondary);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   RESULT BOTTOM
+========================================================= */
+
+.sc-finder-result-bottom {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: auto;
+
+    padding-top: 18px;
+
+    border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+}
+
+.sc-finder-result-bottom strong {
+    color:
+        var(--text-primary);
+
+    font-size: 15px;
+}
+
+.sc-finder-result-bottom button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 10px 13px;
+
+    border:
+        1px solid
+        rgba(201, 170, 113, 0.3);
+
+    border-radius: 999px;
+
+    background:
+        rgba(201, 170, 113, 0.07);
+
+    color:
+        var(--color-primary);
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background
+        var(--transition-medium),
+        border-color
+        var(--transition-medium),
+        transform
+        var(--transition-medium);
+}
+
+.sc-finder-result-bottom button:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        var(--color-primary);
+
+    background:
+        rgba(201, 170, 113, 0.14);
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.sc-finder-no-results {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    padding: 40px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 18px;
+
+    color:
+        var(--text-secondary);
+
+    text-align: center;
+}
+
+.sc-finder-no-results svg {
+    color:
+        var(--color-primary);
+}
+
+.sc-finder-no-results p {
+    max-width: 420px;
+
+    margin: 0;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .sc-finder-results-grid {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .sc-finder-result:first-child {
+        grid-column:
+            1 / -1;
+    }
+
+    .sc-finder-result:first-child
+    .sc-finder-result-image {
+        height: 320px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .sc-finder-box {
+        padding:
+            44px 26px;
+    }
+
+    .sc-finder-header {
+        margin-bottom: 40px;
+    }
+
+    .sc-finder-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .sc-finder-button {
+        width: 100%;
+    }
+
+    .sc-finder-results {
+        margin-top: 60px;
+
+        padding-top: 45px;
+    }
+
+    .sc-finder-results-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 22px;
+    }
+
+    .sc-finder-results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sc-finder-result:first-child {
+        grid-column: auto;
+    }
+
+    .sc-finder-result-image,
+    .sc-finder-result:first-child
+    .sc-finder-result-image {
+        height: 260px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .sc-finder-box {
+        padding:
+            38px 20px;
+
+        border-radius:
+            var(--radius-md);
+    }
+
+    .sc-finder-eyebrow {
+        font-size: 10px;
+
+        letter-spacing: 3.5px;
+    }
+
+    .sc-finder-header h2 {
+        font-size: 2rem;
+    }
+
+    .sc-finder-header p {
+        font-size: 14px;
+    }
+
+    .sc-finder-field select {
+        height: 56px;
+    }
+
+    .sc-finder-button {
+        height: 56px;
+    }
+
+    .sc-finder-result-image {
+        height: 240px;
+    }
+
+    .sc-finder-result-content {
+        padding: 19px;
+    }
+
+    .sc-finder-result-content h4 {
+        font-size: 20px;
+    }
+
+    .sc-finder-result-bottom strong {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .sc-finder *,
+    .sc-finder *::before,
+    .sc-finder *::after {
+        scroll-behavior: auto !important;
+
+        transition: none !important;
+
+        animation: none !important;
+    }
+}

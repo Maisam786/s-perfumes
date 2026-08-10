@@ -1,0 +1,451 @@
+/* =========================================================
+LUXURY STATS
+========================================================= */
+
+.luxury-stats {
+position: relative;
+isolation: isolate;
+overflow: hidden;
+
+
+padding: var(--section-padding) 0;
+
+background: transparent;
+
+
+}
+
+/* =========================================================
+ATMOSPHERIC LIGHT
+========================================================= */
+
+.luxury-stats::before {
+content: "";
+
+
+position: absolute;
+
+width: 900px;
+height: 900px;
+
+border-radius: 50%;
+
+pointer-events: none;
+
+z-index: -1;
+
+
+}
+
+.luxury-stats::before {
+top: -480px;
+left: -360px;
+
+
+background:
+    radial-gradient(
+        circle,
+        rgba(201, 170, 113, 0.085) 0%,
+        rgba(201, 170, 113, 0.035) 42%,
+        transparent 72%
+    );
+
+animation:
+    statsGlowLeft
+    20s ease-in-out
+    infinite alternate;
+
+
+}
+
+.luxury-stats::after {
+right: -340px;
+bottom: -500px;
+
+
+background:
+    radial-gradient(
+        circle,
+        rgba(201, 170, 113, 0.065) 0%,
+        rgba(201, 170, 113, 0.025) 42%,
+        transparent 72%
+    );
+
+animation:
+    statsGlowRight
+    22s ease-in-out
+    infinite alternate;
+
+
+}
+
+/* =========================================================
+GLOW ANIMATION
+========================================================= */
+
+@keyframes statsGlowLeft {
+from {
+transform: translate3d(0, 0, 0) scale(1);
+}
+
+
+to {
+    transform: translate3d(35px, 25px, 0) scale(1.06);
+}
+
+
+}
+
+@keyframes statsGlowRight {
+from {
+transform: translate3d(0, 0, 0) scale(1);
+}
+
+
+to {
+    transform: translate3d(-35px, -25px, 0) scale(1.06);
+}
+
+
+}
+
+/* =========================================================
+HEADING
+========================================================= */
+
+.stats-heading {
+max-width: 760px;
+
+
+margin: 0 auto 76px;
+
+text-align: center;
+
+
+}
+
+.stats-heading span {
+display: inline-block;
+
+
+margin-bottom: 18px;
+
+color: var(--color-primary);
+
+font-size: var(--text-small);
+font-weight: 600;
+
+letter-spacing: 5px;
+
+
+}
+
+.stats-heading h2 {
+margin: 0;
+
+
+color: var(--text-primary);
+
+font-family: var(--font-heading);
+
+font-size: var(--text-section);
+line-height: 1.06;
+
+letter-spacing: -1.5px;
+
+
+}
+
+/* =========================================================
+GRID
+========================================================= */
+
+.stats-grid {
+display: grid;
+
+
+grid-template-columns: repeat(4, 1fr);
+
+gap: 24px;
+
+
+}
+
+/* =========================================================
+STAT CARD
+========================================================= */
+
+.stat-card {
+position: relative;
+
+
+min-height: 220px;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+padding: 42px 28px;
+
+overflow: hidden;
+
+text-align: center;
+
+border:
+    1px solid var(--border-subtle);
+
+border-radius:
+    var(--radius-md);
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(38, 31, 26, 0.52),
+        rgba(17, 15, 13, 0.68)
+    );
+
+box-shadow:
+    0 18px 55px rgba(0, 0, 0, 0.16);
+
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+
+transition:
+    transform var(--transition-medium),
+    border-color var(--transition-medium),
+    box-shadow var(--transition-medium),
+    background var(--transition-medium);
+
+
+}
+
+/* =========================================================
+CARD GOLD ACCENT
+========================================================= */
+
+.stat-accent {
+position: absolute;
+
+
+top: 0;
+left: 50%;
+
+width: 42px;
+height: 2px;
+
+transform: translateX(-50%);
+
+border-radius: 999px;
+
+background: var(--color-primary);
+
+opacity: 0.7;
+
+transition:
+    width var(--transition-medium),
+    opacity var(--transition-medium);
+
+
+}
+
+/* =========================================================
+CARD LIGHT SWEEP
+========================================================= */
+
+.stat-card::before {
+content: "";
+
+
+position: absolute;
+
+top: 0;
+left: -120%;
+
+width: 70%;
+height: 100%;
+
+pointer-events: none;
+
+background:
+    linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 220, 170, 0.08),
+        transparent
+    );
+
+transform: skewX(-18deg);
+
+transition:
+    left 0.9s cubic-bezier(.16, 1, .3, 1);
+
+
+}
+
+/* =========================================================
+HOVER
+========================================================= */
+
+.stat-card:hover {
+transform: translateY(-8px);
+
+
+border-color:
+    var(--border-gold-hover);
+
+background:
+    linear-gradient(
+        145deg,
+        rgba(45, 36, 29, 0.62),
+        rgba(18, 16, 14, 0.74)
+    );
+
+box-shadow:
+    var(--shadow-card-hover);
+
+
+}
+
+.stat-card:hover::before {
+left: 140%;
+}
+
+.stat-card:hover .stat-accent {
+width: 68px;
+
+
+opacity: 1;
+
+
+}
+
+/* =========================================================
+NUMBER
+========================================================= */
+
+.stat-card h3 {
+margin: 0;
+
+
+color: var(--text-primary);
+
+font-family: var(--font-heading);
+
+font-size: clamp(3rem, 4.5vw, 4.25rem);
+
+font-weight: 500;
+
+line-height: 1;
+
+letter-spacing: -2px;
+
+
+}
+
+.stat-card h3 span {
+margin-left: 3px;
+
+
+color: var(--color-primary);
+
+font-size: 0.55em;
+
+letter-spacing: -0.5px;
+
+
+}
+
+/* =========================================================
+TITLE
+========================================================= */
+
+.stat-card p {
+max-width: 180px;
+
+
+margin-top: 18px;
+
+color: var(--text-secondary);
+
+font-size: var(--text-small);
+
+line-height: 1.6;
+
+letter-spacing: 1.5px;
+
+text-transform: uppercase;
+
+
+}
+
+/* =========================================================
+TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+.stats-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+
+
+.stat-card {
+    min-height: 210px;
+}
+
+
+}
+
+/* =========================================================
+MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+.luxury-stats {
+padding: 90px 0;
+}
+
+
+.stats-heading {
+    margin-bottom: 44px;
+}
+
+.stats-heading h2 {
+    font-size: 42px;
+}
+
+.stats-grid {
+    grid-template-columns: 1fr;
+
+    gap: 16px;
+}
+
+.stat-card {
+    min-height: 190px;
+
+    padding: 38px 24px;
+
+    border-radius: var(--radius-sm);
+}
+
+.stat-card h3 {
+    font-size: 3.4rem;
+}
+
+.stat-card p {
+    margin-top: 14px;
+}
+
+
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+.luxury-stats::before,
+.luxury-stats::after {
+animation: none;
+}
+}

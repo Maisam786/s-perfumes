@@ -1,0 +1,204 @@
+/* =========================================================
+   KEYFRAMES
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 36px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -30px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-40px, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeRight {
+    from {
+        opacity: 0;
+        transform: translate3d(40px, 0, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes floating {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, -8px, 0);
+    }
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        opacity: 0.45;
+    }
+
+    50% {
+        opacity: 0.85;
+    }
+}
+
+@keyframes shimmer {
+    from {
+        transform: translate3d(-120%, 0, 0);
+    }
+
+    to {
+        transform: translate3d(220%, 0, 0);
+    }
+}
+
+@keyframes spotlight {
+    0%,
+    100% {
+        transform: translate3d(-20%, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(20%, 12%, 0);
+    }
+}
+
+/* =========================================================
+   ANIMATION UTILITIES
+========================================================= */
+
+.fade-up {
+    animation: fadeUp 0.7s var(--ease) both;
+}
+
+.fade-down {
+    animation: fadeDown 0.7s var(--ease) both;
+}
+
+.fade-left {
+    animation: fadeLeft 0.7s var(--ease) both;
+}
+
+.fade-right {
+    animation: fadeRight 0.7s var(--ease) both;
+}
+
+.scale-in {
+    animation: scaleIn 0.65s var(--ease) both;
+}
+
+.floating {
+    animation: floating 6s ease-in-out infinite;
+}
+
+.glow {
+    animation: glow 4s ease-in-out infinite;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translate3d(0, 42px, 0);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s var(--ease);
+
+    will-change: opacity, transform;
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+
+    will-change: auto;
+}
+
+/* =========================================================
+   REVEAL DELAYS
+========================================================= */
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .fade-up,
+    .fade-down,
+    .fade-left,
+    .fade-right,
+    .scale-in,
+    .floating,
+    .glow,
+    .reveal {
+        animation: none;
+        transition: none;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        will-change: auto;
+    }
+}

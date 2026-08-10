@@ -1,0 +1,799 @@
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.shop-sidebar {
+    position: sticky;
+
+    top: 120px;
+
+    z-index: 20;
+}
+
+
+/* =========================================================
+   FILTER CARD
+========================================================= */
+
+.filter-card {
+    padding: 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(29, 26, 23, 0.88),
+            rgba(20, 18, 16, 0.78)
+        );
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.16);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.filter-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-bottom: 34px;
+}
+
+.filter-heading {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.filter-heading > span {
+    color: var(--color-primary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.filter-heading h3 {
+    margin: 0;
+
+    color: #fff;
+
+    font-family: var(--font-heading);
+
+    font-size: 28px;
+    line-height: 1.15;
+}
+
+
+/* =========================================================
+   CLEAR FILTERS
+========================================================= */
+
+.clear-filters {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 7px 10px;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-medium),
+        transform var(--transition-medium);
+}
+
+.clear-filters svg {
+    width: 13px;
+    height: 13px;
+}
+
+.clear-filters:hover {
+    color: var(--color-primary);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   FILTER GROUP
+========================================================= */
+
+.filter-group {
+    margin-bottom: 34px;
+}
+
+.filter-group:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.filter-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: rgba(255, 255, 255, 0.86);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.filter-search {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 48px;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+
+    background: #1a1715;
+
+    transition:
+        border-color var(--transition-medium),
+        box-shadow var(--transition-medium);
+}
+
+.filter-search:focus-within {
+    border-color: rgba(201, 170, 113, 0.42);
+
+    box-shadow:
+        0 0 0 3px rgba(201, 170, 113, 0.07);
+}
+
+.filter-search > svg {
+    flex-shrink: 0;
+
+    width: 16px;
+    height: 16px;
+
+    margin-left: 16px;
+
+    color: rgba(255, 255, 255, 0.36);
+}
+
+.filter-search input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 14px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 13px;
+}
+
+.filter-search input::placeholder {
+    color: rgba(255, 255, 255, 0.28);
+}
+
+.search-clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 30px;
+    height: 30px;
+
+    margin-right: 8px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-medium),
+        color var(--transition-medium);
+}
+
+.search-clear svg {
+    width: 13px;
+    height: 13px;
+}
+
+.search-clear:hover {
+    background: rgba(255, 255, 255, 0.12);
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.filter-section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+
+    color: rgba(255, 255, 255, 0.86);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.filter-section-title > svg {
+    width: 14px;
+    height: 14px;
+
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.filter-section-title strong {
+    color: var(--color-primary);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.filter-options {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.filter-option {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    min-height: 38px;
+
+    gap: 11px;
+
+    padding: 5px 8px;
+
+    border-radius: 10px;
+
+    color: rgba(255, 255, 255, 0.52);
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-medium),
+        background var(--transition-medium),
+        transform var(--transition-medium);
+}
+
+.filter-option:hover {
+    color: #fff;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   HIDE NATIVE RADIO
+========================================================= */
+
+.filter-option input {
+    position: absolute;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CUSTOM RADIO
+========================================================= */
+
+.custom-radio {
+    position: relative;
+
+    flex-shrink: 0;
+
+    width: 17px;
+    height: 17px;
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 50%;
+
+    transition:
+        border-color var(--transition-medium),
+        background var(--transition-medium),
+        box-shadow var(--transition-medium);
+}
+
+.filter-option input:checked + .custom-radio {
+    border-color: var(--color-primary);
+
+    background: var(--color-primary);
+
+    box-shadow:
+        0 0 0 3px rgba(201, 170, 113, 0.09);
+}
+
+.filter-option input:checked + .custom-radio::after {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #15120f;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* =========================================================
+   OPTION TEXT
+========================================================= */
+
+.option-text {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+.filter-option input:checked ~ .option-text {
+    color: #fff;
+
+    font-weight: 500;
+}
+
+/* =========================================================
+   RATING OPTIONS
+========================================================= */
+
+.rating-option {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   RATING STARS
+========================================================= */
+
+.rating-stars {
+    color: var(--color-primary);
+
+    font-size: 11px;
+
+    line-height: 1;
+
+    letter-spacing: 1.5px;
+
+    white-space: nowrap;
+
+    text-shadow:
+        0 0 8px rgba(201, 170, 113, 0.12);
+}
+
+
+/* =========================================================
+   EMPTY STARS
+========================================================= */
+
+.empty-star {
+    color: rgba(255, 255, 255, 0.14);
+
+    text-shadow: none;
+}
+
+
+/* =========================================================
+   RATING LABEL
+========================================================= */
+
+.rating-label {
+    color: rgba(255, 255, 255, 0.52);
+
+    font-size: 12px;
+
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ACTIVE RATING
+========================================================= */
+
+.filter-option input:checked ~ .rating-option .rating-label {
+    color: #fff;
+
+    font-weight: 500;
+}
+
+.filter-option input:checked ~ .rating-option .rating-stars {
+    color: var(--color-primary);
+
+    text-shadow:
+        0 0 10px rgba(201, 170, 113, 0.22);
+}
+
+
+/* =========================================================
+   PRICE SLIDER
+========================================================= */
+
+.price-slider {
+    position: relative;
+
+    padding: 5px 0;
+}
+
+.price-slider input[type="range"] {
+    --range-progress: 100%;
+
+    width: 100%;
+    height: 5px;
+
+    margin: 8px 0;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    outline: none;
+
+    border-radius: 999px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--color-primary) 0%,
+            var(--color-primary) var(--range-progress),
+            rgba(255, 255, 255, 0.10) var(--range-progress),
+            rgba(255, 255, 255, 0.10) 100%
+        );
+
+    cursor: pointer;
+}
+
+
+/* Chrome / Safari */
+
+.price-slider input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 18px;
+    height: 18px;
+
+    border: 3px solid #191613;
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    box-shadow:
+        0 0 0 1px rgba(201, 170, 113, 0.45),
+        0 4px 12px rgba(0, 0, 0, 0.3);
+
+    cursor: grab;
+}
+
+.price-slider input[type="range"]::-webkit-slider-thumb:active {
+    cursor: grabbing;
+}
+
+
+/* Firefox */
+
+.price-slider input[type="range"]::-moz-range-thumb {
+    width: 13px;
+    height: 13px;
+
+    border: 3px solid #191613;
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    box-shadow:
+        0 0 0 1px rgba(201, 170, 113, 0.45);
+
+    cursor: grab;
+}
+
+
+/* =========================================================
+   PRICE LABELS
+========================================================= */
+
+.price-range-labels {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 7px;
+
+    color: rgba(255, 255, 255, 0.30);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   MOBILE HEADER
+========================================================= */
+
+.mobile-filter-header {
+    display: none;
+}
+
+
+/* =========================================================
+   MOBILE APPLY
+========================================================= */
+
+.mobile-filter-apply {
+    display: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 992px) {
+
+    .shop-sidebar {
+        position: static;
+    }
+
+    .filter-card {
+        padding: 26px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .shop-sidebar {
+        position: fixed;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100vh;
+
+        z-index: 2000;
+
+        padding: 0;
+
+        overflow-y: auto;
+
+        background:
+            rgba(10, 9, 8, 0.94);
+
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+
+        transform: translateX(-100%);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transition:
+            transform 0.4s ease,
+            opacity 0.3s ease,
+            visibility 0.4s ease;
+    }
+
+    .shop-sidebar--open {
+        transform: translateX(0);
+
+        opacity: 1;
+
+        visibility: visible;
+    }
+
+
+    .mobile-filter-header {
+        position: sticky;
+
+        top: 0;
+
+        z-index: 5;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 18px 20px;
+
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+        background:
+            rgba(18, 16, 14, 0.92);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+
+    .mobile-filter-title {
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+
+        color: #fff;
+
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .mobile-filter-title svg {
+        color: var(--color-primary);
+    }
+
+    .mobile-filter-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 40px;
+        height: 40px;
+
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 50%;
+
+        background: rgba(255, 255, 255, 0.05);
+
+        color: #fff;
+
+        cursor: pointer;
+    }
+
+    .filter-card {
+        min-height: calc(100vh - 77px);
+
+        padding: 26px 20px 100px;
+
+        border: none;
+        border-radius: 0;
+
+        background: transparent;
+
+        box-shadow: none;
+
+        backdrop-filter: none;
+    }
+
+    .filter-header {
+        margin-bottom: 28px;
+    }
+
+    .filter-heading h3 {
+        font-size: 25px;
+    }
+
+    .mobile-filter-apply {
+        position: fixed;
+
+        left: 20px;
+        right: 20px;
+        bottom: 18px;
+
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        height: 54px;
+
+        border: none;
+        border-radius: 999px;
+
+        background: var(--color-primary);
+
+        color: #15120f;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 14px 35px rgba(0, 0, 0, 0.35);
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .filter-card {
+        padding-inline: 16px;
+    }
+
+    .mobile-filter-header {
+        padding-inline: 16px;
+    }
+
+    .mobile-filter-apply {
+        left: 16px;
+        right: 16px;
+    }
+
+}

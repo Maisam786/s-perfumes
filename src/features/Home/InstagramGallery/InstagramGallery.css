@@ -1,0 +1,524 @@
+/* =========================================================
+   INSTAGRAM GALLERY
+========================================================= */
+
+.instagram-gallery {
+
+    position: relative;
+
+    padding: var(--section-padding) 0;
+
+    background: transparent;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+}
+
+
+/* =========================================================
+   ATMOSPHERIC LIGHT
+========================================================= */
+
+.instagram-gallery::before {
+
+    content: "";
+
+    position: absolute;
+
+    right: -300px;
+    top: -450px;
+
+    width: 950px;
+    height: 950px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, 0.065) 0%,
+            rgba(201, 170, 113, 0.025) 42%,
+            transparent 72%
+        );
+
+    pointer-events: none;
+
+    z-index: -1;
+
+    animation:
+        testimonialGlowRight
+        20s
+        ease-in-out
+        infinite
+        alternate;
+
+}
+
+
+/* =========================================================
+   GLOW ANIMATION
+========================================================= */
+
+@keyframes galleryGlow {
+
+    from {
+
+        transform:
+            translate3d(0, 0, 0)
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            translate3d(-35px, 30px, 0)
+            scale(1.07);
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.instagram-gallery .container {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.gallery-heading {
+
+    max-width: 760px;
+
+    margin: 0 auto 76px;
+
+    text-align: center;
+
+}
+
+
+.gallery-heading span {
+
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--color-primary);
+
+    font-size: var(--text-small);
+
+    font-weight: 600;
+
+    letter-spacing: 5px;
+
+}
+
+
+.gallery-heading h2 {
+
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: var(--text-section);
+
+    line-height: 1.06;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.gallery-heading p {
+
+    max-width: 650px;
+
+    margin: 22px auto 0;
+
+    color: var(--text-secondary);
+
+    font-size: var(--text-body);
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 26px;
+
+}
+
+
+/* =========================================================
+   GALLERY ITEM
+========================================================= */
+
+.gallery-item {
+
+    position: relative;
+
+    aspect-ratio: 1 / 1;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border-subtle);
+
+    border-radius: var(--radius-lg);
+
+    background:
+        rgba(26, 23, 21, 0.55);
+
+    cursor: pointer;
+
+    isolation: isolate;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.16);
+
+    transition:
+        transform var(--transition-medium),
+        border-color var(--transition-medium),
+        box-shadow var(--transition-medium);
+
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.gallery-item img {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.9s cubic-bezier(.2, .7, .2, 1),
+        filter 0.6s ease;
+
+}
+
+
+/* =========================================================
+   OVERLAY
+========================================================= */
+
+.gallery-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(10, 9, 8, 0.12),
+            rgba(10, 9, 8, 0.62)
+        );
+
+    opacity: 0;
+
+    backdrop-filter: blur(3px);
+
+    -webkit-backdrop-filter: blur(3px);
+
+    transition:
+        opacity var(--transition-medium);
+
+}
+
+
+/* =========================================================
+   INSTAGRAM ICON
+========================================================= */
+
+.gallery-icon {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 64px;
+    height: 64px;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 50%;
+
+    background:
+        rgba(201, 170, 113, 0.92);
+
+    color: var(--color-bg);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.30),
+        0 0 35px rgba(201, 170, 113, 0.20);
+
+    transform:
+        translateY(12px)
+        scale(0.82);
+
+    transition:
+        transform var(--transition-medium),
+        box-shadow var(--transition-medium);
+
+}
+
+
+.gallery-icon svg {
+
+    width: 25px;
+    height: 25px;
+
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.gallery-item:hover {
+
+    transform: translateY(-8px);
+
+    border-color:
+        var(--border-gold-hover);
+
+    box-shadow:
+        0 28px 65px rgba(0, 0, 0, 0.32);
+
+}
+
+
+.gallery-item:hover img {
+
+    transform: scale(1.08);
+
+    filter:
+        brightness(0.78);
+
+}
+
+
+.gallery-item:hover .gallery-overlay {
+
+    opacity: 1;
+
+}
+
+
+.gallery-item:hover .gallery-icon {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.gallery-overlay:focus-visible {
+
+    opacity: 1;
+
+    outline:
+        2px solid var(--color-primary-light);
+
+    outline-offset:
+        -5px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .instagram-gallery {
+
+        padding: 110px 0;
+
+    }
+
+    .gallery-heading h2 {
+
+        font-size: 48px;
+
+    }
+
+    .gallery-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .instagram-gallery {
+
+        padding: 90px 0;
+
+    }
+
+    .gallery-heading {
+
+        margin-bottom: 44px;
+
+    }
+
+    .gallery-heading h2 {
+
+        font-size: 40px;
+
+    }
+
+    .gallery-heading p {
+
+        font-size: 15px;
+
+    }
+
+    .gallery-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+    .gallery-item {
+
+        border-radius:
+            var(--radius-md);
+
+    }
+
+    .gallery-icon {
+
+        width: 58px;
+        height: 58px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+========================================================= */
+
+@media (hover: none) {
+
+    .gallery-overlay {
+
+        opacity: 1;
+
+        align-items: flex-end;
+
+        justify-content: flex-end;
+
+        padding: 18px;
+
+        background:
+            linear-gradient(
+                180deg,
+                transparent 55%,
+                rgba(10, 9, 8, 0.62)
+            );
+
+    }
+
+    .gallery-icon {
+
+        width: 48px;
+        height: 48px;
+
+        transform: none;
+
+    }
+
+    .gallery-icon svg {
+
+        width: 20px;
+        height: 20px;
+
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .instagram-gallery::before {
+
+        animation: none;
+
+    }
+
+    .gallery-item,
+    .gallery-item img,
+    .gallery-overlay,
+    .gallery-icon {
+
+        transition: none;
+
+    }
+
+}
+

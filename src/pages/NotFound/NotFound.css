@@ -1,0 +1,49 @@
+.notfound-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    background:var(--color-background);
+
+}
+
+.notfound-code{
+
+    display:block;
+
+    font-size:clamp(90px,15vw,180px);
+
+    font-weight:700;
+
+    color:rgba(212,175,55,.12);
+
+    letter-spacing:8px;
+
+    margin-bottom:20px;
+
+}
+
+.notfound-page h1{
+
+    margin-bottom:20px;
+
+}
+
+.notfound-page p{
+
+    max-width:650px;
+
+    margin:0 auto 40px;
+
+    line-height:2;
+
+    color:#D4D0CB;
+
+}

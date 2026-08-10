@@ -1,0 +1,128 @@
+/* =========================================================
+   RELATED PRODUCTS
+========================================================= */
+
+.related-products {
+    margin-top: 120px;
+    padding-bottom: 40px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.related-header {
+    max-width: 680px;
+    margin: 0 auto 55px;
+
+    text-align: center;
+}
+
+.related-header > span {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: var(--color-primary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.related-header h2 {
+    margin: 0 0 16px;
+
+    color: var(--color-cream);
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(34px, 4vw, 48px);
+
+    line-height: 1.1;
+}
+
+.related-header p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: rgba(255, 255, 255, 0.52);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.related-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .related-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+
+        gap: 20px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .related-products {
+        margin-top: 90px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .related-products {
+        margin-top: 80px;
+
+        padding-bottom: 20px;
+    }
+
+    .related-header {
+        margin-bottom: 38px;
+    }
+
+    .related-header p {
+        font-size: 14px;
+    }
+
+    .related-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+}

@@ -1,0 +1,955 @@
+/* =========================================================
+   CART DRAWER
+========================================================= */
+
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1500;
+
+    background: rgba(5, 4, 3, .62);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 600ms cubic-bezier(.22, 1, .36, 1),
+        visibility 600ms ease;
+}
+
+.drawer-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   DRAWER
+========================================================= */
+
+.cart-drawer {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    z-index: 1600;
+
+    display: flex;
+    flex-direction: column;
+
+    width: min(440px, 100vw);
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b1714 0%,
+            #151210 55%,
+            #110f0d 100%
+        );
+
+    border-left: 1px solid rgba(255, 255, 255, .07);
+
+    box-shadow:
+        -30px 0 90px rgba(0, 0, 0, .35);
+
+    transform: translate3d(105%, 0, 0);
+
+    transition:
+        transform 650ms cubic-bezier(.22, 1, .36, 1);
+
+    visibility: hidden;
+}
+
+.cart-drawer.open {
+    transform: translate3d(0, 0, 0);
+
+    visibility: visible;
+}
+
+
+/* =========================================================
+   SUBTLE GOLD AMBIENT LIGHT
+========================================================= */
+
+.cart-drawer::before {
+    content: "";
+
+    position: absolute;
+
+    top: -180px;
+    right: -180px;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, .10),
+            transparent 68%
+        );
+
+    filter: blur(30px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.drawer-header {
+    position: relative;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    padding: 30px 28px 24px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .07);
+
+    z-index: 2;
+}
+
+.drawer-heading {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-eyebrow {
+    margin-bottom: 7px;
+
+    color: var(--color-primary-light);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+}
+
+.drawer-heading h2 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: 30px;
+    font-weight: 500;
+
+    line-height: 1;
+    letter-spacing: -.5px;
+}
+
+.drawer-count {
+    margin-top: 8px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+========================================================= */
+
+.drawer-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .045);
+
+    color: var(--text-primary);
+
+    cursor: pointer;
+
+    transition:
+        transform 450ms cubic-bezier(.22, 1, .36, 1),
+        background 350ms ease,
+        border-color 350ms ease,
+        color 350ms ease;
+}
+
+.drawer-close svg {
+    width: 18px;
+    height: 18px;
+}
+
+.drawer-close:hover {
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: #14110f;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+.drawer-body {
+    position: relative;
+
+    flex: 1;
+
+    min-height: 0;
+
+    overflow-y: auto;
+
+    padding: 24px 28px;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(201, 170, 113, .35)
+        transparent;
+}
+
+.drawer-body::-webkit-scrollbar {
+    width: 4px;
+}
+
+.drawer-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.drawer-body::-webkit-scrollbar-thumb {
+    background: rgba(201, 170, 113, .30);
+
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   ITEMS
+========================================================= */
+
+.drawer-items {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.drawer-item {
+    display: flex;
+
+    gap: 16px;
+
+    padding-bottom: 22px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, .065);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.drawer-image-wrap {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 88px;
+    height: 104px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .065);
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #24201d,
+            #191613
+        );
+}
+
+.drawer-image-wrap::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(201, 170, 113, .08),
+            transparent 60%
+        );
+
+    pointer-events: none;
+}
+
+.drawer-image-wrap img {
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+
+    object-fit: contain;
+
+    transition:
+        transform 700ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.drawer-item:hover .drawer-image-wrap img {
+    transform: scale(1.05);
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.drawer-info {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.drawer-item-top {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 8px;
+}
+
+.drawer-item-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: rgba(255, 255, 255, .38);
+
+    font-size: 8px;
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+.drawer-info h4 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: 19px;
+    font-weight: 500;
+
+    line-height: 1.1;
+}
+
+.drawer-price {
+    margin-top: 8px;
+
+    color: var(--color-primary-light);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   REMOVE BUTTON
+========================================================= */
+
+.drawer-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    flex-shrink: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, .38);
+
+    cursor: pointer;
+
+    transition:
+        background 300ms ease,
+        color 300ms ease,
+        transform 300ms ease;
+}
+
+.drawer-remove svg {
+    width: 15px;
+    height: 15px;
+}
+
+.drawer-remove:hover {
+    background: rgba(255, 80, 80, .10);
+
+    color: #ff7373;
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   ITEM BOTTOM
+========================================================= */
+
+.drawer-item-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-top: auto;
+    padding-top: 14px;
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.drawer-quantity {
+    display: flex;
+    align-items: center;
+
+    height: 36px;
+
+    padding: 3px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .035);
+}
+
+.drawer-quantity button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 29px;
+    height: 29px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: transparent;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition:
+        background 250ms ease,
+        color 250ms ease;
+}
+
+.drawer-quantity button svg {
+    width: 13px;
+    height: 13px;
+}
+
+.drawer-quantity button:hover {
+    background: var(--color-primary);
+
+    color: #14110f;
+}
+
+.drawer-quantity span {
+    min-width: 30px;
+
+    color: var(--text-primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-align: center;
+}
+
+.drawer-item-total {
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   EMPTY CART
+========================================================= */
+
+.drawer-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-height: 100%;
+
+    padding:
+        70px
+        10px
+        40px;
+
+    text-align: center;
+}
+
+.drawer-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 76px;
+    height: 76px;
+
+    margin-bottom: 26px;
+
+    border: 1px solid rgba(201, 170, 113, .18);
+    border-radius: 50%;
+
+    background: rgba(201, 170, 113, .045);
+
+    color: var(--color-primary-light);
+}
+
+.drawer-empty-icon svg {
+    width: 27px;
+    height: 27px;
+
+    stroke-width: 1.3;
+}
+
+.drawer-empty-eyebrow {
+    margin-bottom: 10px;
+
+    color: var(--color-primary-light);
+
+    font-size: 10px;
+    font-weight: 600;
+
+    letter-spacing: 3px;
+}
+
+.drawer-empty h3 {
+    margin: 0 0 12px;
+
+    color: var(--text-primary);
+
+    font-family: var(--font-heading);
+
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.drawer-empty p {
+    max-width: 270px;
+
+    margin: 0 0 28px;
+
+    color: var(--text-secondary);
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.drawer-empty-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    border: 1px solid rgba(201, 170, 113, .30);
+    border-radius: 999px;
+
+    background: rgba(201, 170, 113, .08);
+
+    color: var(--text-primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 350ms ease,
+        border-color 350ms ease,
+        color 350ms ease,
+        transform 450ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.drawer-empty-btn svg {
+    width: 15px;
+    height: 15px;
+
+    transition:
+        transform 350ms ease;
+}
+
+.drawer-empty-btn:hover {
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: #14110f;
+
+    transform: translateY(-2px);
+}
+
+.drawer-empty-btn:hover svg {
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.drawer-footer {
+    position: relative;
+
+    z-index: 3;
+
+    padding: 22px 28px 26px;
+
+    border-top: 1px solid rgba(255, 255, 255, .075);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(26, 23, 21, .82),
+            #171411
+        );
+
+    box-shadow:
+        0 -18px 40px rgba(0, 0, 0, .16);
+}
+
+
+/* =========================================================
+   TOTAL
+========================================================= */
+
+.drawer-total {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 18px;
+}
+
+.drawer-total > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.drawer-total span {
+    color: var(--text-primary);
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.drawer-total small {
+    margin-top: 5px;
+
+    color: rgba(255, 255, 255, .38);
+
+    font-size: 10px;
+}
+
+.drawer-total strong {
+    color: var(--text-primary);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FOOTER BUTTONS
+========================================================= */
+
+.drawer-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+    min-height: 52px;
+
+    margin-top: 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        transform 450ms cubic-bezier(.22, 1, .36, 1),
+        background 350ms ease,
+        border-color 350ms ease,
+        color 350ms ease,
+        box-shadow 450ms ease;
+}
+
+.drawer-btn svg {
+    width: 15px;
+    height: 15px;
+
+    transition:
+        transform 350ms ease;
+}
+
+
+/* SECONDARY */
+
+.drawer-btn-secondary {
+    border: 1px solid rgba(255, 255, 255, .10);
+
+    background: rgba(255, 255, 255, .045);
+
+    color: var(--text-primary);
+}
+
+.drawer-btn-secondary:hover {
+    border-color: rgba(201, 170, 113, .30);
+
+    background: rgba(201, 170, 113, .08);
+
+    transform: translateY(-2px);
+}
+
+.drawer-btn-secondary:hover svg {
+    transform: translateX(3px);
+}
+
+
+/* PRIMARY */
+
+.drawer-btn-primary {
+    border: 1px solid var(--color-primary);
+
+    background: var(--color-primary);
+
+    color: #14110f;
+
+    box-shadow:
+        0 10px 28px rgba(201, 170, 113, .13);
+}
+
+.drawer-btn-primary:hover {
+    background: var(--color-primary-light);
+
+    border-color: var(--color-primary-light);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 34px rgba(201, 170, 113, .20);
+}
+
+.drawer-btn-primary:hover svg {
+    transform: translateX(3px);
+}
+
+.drawer-btn:active,
+.drawer-empty-btn:active {
+    transform: translateY(0) scale(.98);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .cart-drawer {
+        width: min(420px, 100vw);
+    }
+
+    .drawer-header {
+        padding:
+            24px
+            22px
+            20px;
+    }
+
+    .drawer-body {
+        padding:
+            20px
+            22px;
+    }
+
+    .drawer-footer {
+        padding:
+            18px
+            22px
+            22px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .drawer-heading h2 {
+        font-size: 27px;
+    }
+
+    .drawer-header {
+        padding-inline: 18px;
+    }
+
+    .drawer-body {
+        padding-inline: 18px;
+    }
+
+    .drawer-footer {
+        padding-inline: 18px;
+    }
+
+    .drawer-image-wrap {
+        width: 78px;
+        height: 96px;
+
+        border-radius: 14px;
+    }
+
+    .drawer-info h4 {
+        font-size: 17px;
+    }
+
+    .drawer-item {
+        gap: 13px;
+    }
+
+    .drawer-total strong {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL DEVICES
+========================================================= */
+
+@media (max-width: 340px) {
+
+    .drawer-header {
+        padding:
+            20px
+            15px
+            18px;
+    }
+
+    .drawer-body {
+        padding-inline: 15px;
+    }
+
+    .drawer-footer {
+        padding-inline: 15px;
+    }
+
+    .drawer-image-wrap {
+        width: 70px;
+        height: 88px;
+    }
+
+    .drawer-info h4 {
+        font-size: 16px;
+    }
+
+    .drawer-item-total {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .drawer-overlay,
+    .cart-drawer,
+    .drawer-close,
+    .drawer-image-wrap img,
+    .drawer-remove,
+    .drawer-quantity button,
+    .drawer-empty-btn,
+    .drawer-btn,
+    .drawer-btn svg {
+        transition: none;
+    }
+}

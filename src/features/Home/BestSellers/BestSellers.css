@@ -1,0 +1,305 @@
+/* =========================================================
+BEST SELLERS
+========================================================= */
+
+.best-sellers {
+    position: relative;
+    padding: var(--section-padding) 0;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* =========================================================
+SECTION GLOW
+Reuses the global luxury glow system.
+========================================================= */
+
+.best-sellers .luxury-glow {
+    pointer-events: none;
+}
+
+.best-sellers .luxury-glow--top-right {
+    top: -360px;
+    right: -280px;
+}
+
+.best-sellers .luxury-glow--bottom-left {
+    bottom: -380px;
+    left: -300px;
+}
+
+/* =========================================================
+CONTAINER
+========================================================= */
+
+.best-sellers .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================
+HEADING
+========================================================= */
+
+.best-heading {
+    margin-bottom: 76px;
+}
+
+.best-heading h2 {
+    max-width: 760px;
+    margin-inline: auto;
+}
+
+.best-heading p {
+    max-width: 650px;
+}
+
+/* =========================================================
+PRODUCT SLIDER
+========================================================= */
+
+.products-slider-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.products-slider {
+    display: flex;
+    align-items: stretch;
+    gap: 30px;
+
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: 12px 8px 34px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+
+    -webkit-overflow-scrolling: touch;
+
+}
+
+.products-slider::-webkit-scrollbar {
+    display: none;
+}
+
+/* =========================================================
+PRODUCT SLIDE
+========================================================= */
+
+.product-slide {
+    flex: 0 0 365px;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+
+    min-width: 0;
+    transition: transform 700ms cubic-bezier(.22, 1, .36, 1);
+
+}
+
+/* =========================================================
+PRODUCT NAVIGATION
+========================================================= */
+
+.products-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 56px;
+    height: 56px;
+
+    border: 1px solid rgba(255, 255, 255, .10);
+    border-radius: 50%;
+
+    background: rgba(21, 18, 16, 0.72);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: var(--text-primary);
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transform: translateY(-50%);
+
+    transition: transform 550ms cubic-bezier(.22, 1, .36, 1), background 450ms ease, border-color 450ms ease, color 450ms ease, box-shadow 550ms ease;
+
+}
+
+.products-arrow:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+
+    color: #14110F;
+
+    transform: translateY(-50%) scale(1.06);
+
+    box-shadow:
+        0 14px 35px rgba(201, 170, 113, 0.20);
+
+}
+
+.products-arrow:active {
+    transform: translateY(-50%) scale(0.96);
+}
+
+.products-arrow--left {
+    left: -28px;
+}
+
+.products-arrow--right {
+    right: -28px;
+}
+
+/* =========================================================
+PRODUCT SLIDER EDGE FADE
+Subtle visual indication that more products exist.
+========================================================= */
+
+.products-slider-wrapper::before,
+.products-slider-wrapper::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 24px;
+
+    width: 70px;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+}
+
+.products-slider-wrapper::before {
+    left: 0;
+
+    background:
+        linear-gradient(90deg,
+            var(--color-background),
+            transparent);
+
+}
+
+.products-slider-wrapper::after {
+    right: 0;
+
+    background:
+        linear-gradient(270deg,
+            var(--color-background),
+            transparent);
+
+}
+
+/* =========================================================
+RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .product-slide {
+        flex-basis: 335px;
+    }
+
+    .products-arrow--left {
+        left: -18px;
+    }
+
+    .products-arrow--right {
+        right: -18px;
+    }
+
+}
+
+@media (max-width: 992px) {
+
+    .best-heading {
+        margin-bottom: 60px;
+    }
+
+    .products-slider {
+        gap: 24px;
+    }
+
+    .product-slide {
+        flex-basis: 320px;
+    }
+
+    .products-arrow {
+        width: 50px;
+        height: 50px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .best-heading {
+        margin-bottom: 46px;
+    }
+
+    .products-slider {
+        gap: 18px;
+
+        padding:
+            8px 8px 28px;
+    }
+
+    .product-slide {
+        flex: 0 0 82vw;
+        max-width: 360px;
+    }
+
+    .products-arrow {
+        display: none;
+    }
+
+    .products-slider-wrapper::before,
+    .products-slider-wrapper::after {
+        display: none;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .product-slide {
+        flex-basis: 86vw;
+    }
+
+    .products-slider {
+        padding-inline: 4px;
+    }
+
+}
+
+/* =========================================================
+REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .products-slider {
+        scroll-behavior: auto;
+    }
+
+    .products-arrow,
+    .product-slide {
+        transition: none;
+    }
+
+}

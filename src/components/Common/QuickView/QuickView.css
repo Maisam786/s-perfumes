@@ -1,0 +1,1078 @@
+/* =========================================================
+   QUICK VIEW OVERLAY
+========================================================= */
+
+.quickview-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.68);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    animation: quickviewFadeIn 0.3s ease both;
+
+    overflow-y: auto;
+}
+
+
+/* =========================================================
+   PANEL
+========================================================= */
+
+.quickview-panel {
+    position: relative;
+
+    width: min(1380px, 94vw);
+    height: min(820px, calc(100vh - 80px));
+
+    display: grid;
+    grid-template-columns: 44% 56%;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(28, 24, 21, 0.98),
+            rgba(18, 16, 14, 0.98)
+        );
+
+    box-shadow:
+        0 40px 120px rgba(0, 0, 0, 0.62),
+        0 0 0 1px rgba(201, 170, 113, 0.025);
+
+    animation: quickviewPanelIn 0.38s
+        cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.quickview-close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+
+    z-index: 20;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 50%;
+
+    background: rgba(10, 9, 8, 0.48);
+
+    color: rgba(255, 255, 255, 0.82);
+
+    cursor: pointer;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    transition:
+        transform var(--transition-medium),
+        background var(--transition-medium),
+        border-color var(--transition-medium),
+        color var(--transition-medium);
+}
+
+.quickview-close svg {
+    width: 19px;
+    height: 19px;
+}
+
+.quickview-close:hover {
+    transform: rotate(90deg);
+
+    background: var(--color-primary);
+
+    border-color: var(--color-primary);
+
+    color: #14110f;
+}
+
+
+/* =========================================================
+   IMAGE SIDE
+========================================================= */
+
+.quickview-image {
+    position: relative;
+
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            rgba(201, 170, 113, 0.13),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            #211d19,
+            #151311
+        );
+}
+
+
+/* subtle decorative light */
+
+.quickview-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 520px;
+    height: 520px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, 0.18),
+            rgba(201, 170, 113, 0.04) 42%,
+            transparent 72%
+        );
+
+    filter: blur(4px);
+
+    pointer-events: none;
+}
+
+
+/* second atmospheric glow */
+
+.quickview-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 12%;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(201, 170, 113, 0.055);
+
+    transform: scale(0.78);
+
+    pointer-events: none;
+}
+
+
+.quickview-image-glow {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.05),
+            transparent 70%
+        );
+
+    filter: blur(20px);
+
+    pointer-events: none;
+}
+
+
+/* product image */
+
+.quickview-image img {
+    position: relative;
+    z-index: 2;
+
+    width: min(78%, 500px);
+    height: min(78%, 570px);
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 30px 35px rgba(0, 0, 0, 0.38));
+
+    transition:
+        transform 0.7s
+            cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.5s ease;
+}
+
+.quickview-image:hover img {
+    transform: scale(1.035);
+
+    filter:
+        drop-shadow(0 38px 45px rgba(0, 0, 0, 0.46));
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.quickview-badge {
+    position: absolute;
+
+    left: 34px;
+    bottom: 30px;
+
+    z-index: 5;
+
+    padding: 9px 15px;
+
+    border: 1px solid
+        rgba(201, 170, 113, 0.28);
+
+    border-radius: 999px;
+
+    background:
+        rgba(201, 170, 113, 0.10);
+
+    color: var(--color-primary);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.quickview-content {
+    height: 100%;
+
+    overflow-y: auto;
+
+    padding: 64px 70px 48px;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(201, 170, 113, 0.35)
+        transparent;
+}
+
+.quickview-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.quickview-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.quickview-content::-webkit-scrollbar-thumb {
+    border-radius: 999px;
+
+    background:
+        rgba(201, 170, 113, 0.30);
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.quickview-brand {
+    display: inline-block;
+
+    margin-bottom: 18px;
+
+    color: var(--color-primary);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.quickview-category {
+    display: block;
+
+    margin-bottom: 9px;
+
+    color: rgba(255, 255, 255, 0.42);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TITLE + PRICE
+========================================================= */
+
+.quickview-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 35px;
+
+    margin-bottom: 26px;
+}
+
+.quickview-heading {
+    min-width: 0;
+}
+
+.quickview-title-row h2 {
+    margin: 0;
+
+    color: #fff;
+
+    font-family: var(--font-heading);
+
+    font-size: clamp(2.4rem, 4vw, 4rem);
+
+    line-height: 1.04;
+
+    letter-spacing: -1.5px;
+}
+
+.quickview-price {
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 6px;
+
+    padding-top: 20px;
+}
+
+.quickview-price .price {
+    color: #fff;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.quickview-price .old-price {
+    color: rgba(255, 255, 255, 0.30);
+
+    font-size: 13px;
+
+    text-decoration: line-through;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.quickview-description {
+    max-width: 650px;
+
+    margin-bottom: 28px;
+}
+
+.quickview-description p {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.63);
+
+    font-size: 15px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.quickview-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 32px;
+}
+
+.quickview-stock {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 9px 14px;
+
+    border: 1px solid
+        rgba(201, 170, 113, 0.18);
+
+    border-radius: 999px;
+
+    background:
+        rgba(201, 170, 113, 0.07);
+
+    color: #dfc58e;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stock-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #8fbe72;
+
+    box-shadow:
+        0 0 10px rgba(143, 190, 114, 0.55);
+}
+
+.quickview-shipping {
+    color: rgba(255, 255, 255, 0.38);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.quickview-actions {
+    max-width: 680px;
+
+    margin-top: 6px;
+}
+
+.quickview-top-actions {
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.quickview-quantity {
+    flex-shrink: 0;
+
+    width: 145px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.09);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+}
+
+.quickview-quantity button {
+    width: 45px;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    color: rgba(255, 255, 255, 0.72);
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.quickview-quantity button:hover:not(:disabled) {
+    background:
+        rgba(201, 170, 113, 0.12);
+
+    color: var(--color-primary);
+}
+
+.quickview-quantity button:disabled {
+    opacity: 0.25;
+
+    cursor: not-allowed;
+}
+
+.quickview-quantity svg {
+    width: 15px;
+    height: 15px;
+}
+
+.quickview-quantity span {
+    flex: 1;
+
+    text-align: center;
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ADD TO CART
+========================================================= */
+
+.quickview-cart {
+    flex: 1;
+
+    min-width: 0;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    border: 1px solid
+        var(--color-primary);
+
+    border-radius: 999px;
+
+    background: var(--color-primary);
+
+    color: #17130f;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-medium),
+        background var(--transition-medium),
+        box-shadow var(--transition-medium);
+}
+
+.quickview-cart svg {
+    width: 17px;
+    height: 17px;
+}
+
+.quickview-cart:hover {
+    transform: translateY(-2px);
+
+    background: var(--color-primary-light);
+
+    box-shadow:
+        0 14px 30px
+        rgba(201, 170, 113, 0.16);
+}
+
+
+/* =========================================================
+   BUY NOW
+========================================================= */
+
+.quickview-buy {
+    width: 100%;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.12);
+
+    border-radius: 999px;
+
+    background:
+        rgba(255, 255, 255, 0.055);
+
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform var(--transition-medium),
+        background var(--transition-medium),
+        border-color var(--transition-medium);
+}
+
+.quickview-buy:hover {
+    transform: translateY(-2px);
+
+    border-color:
+        rgba(255, 255, 255, 0.22);
+
+    background:
+        rgba(255, 255, 255, 0.09);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.quickview-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    margin-top: 38px;
+    padding-top: 24px;
+
+    border-top: 1px solid
+        rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   SHARE
+========================================================= */
+
+.quickview-share {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.quickview-share > span {
+    color: rgba(255, 255, 255, 0.35);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.share-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.share-icons button {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, 0.035);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.share-icons button:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(201, 170, 113, 0.12);
+
+    border-color:
+        rgba(201, 170, 113, 0.24);
+
+    color: var(--color-primary);
+}
+
+.share-icons svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   HELP
+========================================================= */
+
+.need-help {
+    padding: 0;
+
+    border: none;
+
+    background: none;
+
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color var(--transition-fast);
+}
+
+.need-help:hover {
+    color: var(--color-primary);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes quickviewFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes quickviewPanelIn {
+    from {
+        opacity: 0;
+        transform:
+            translateY(28px)
+            scale(0.975);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .quickview-overlay {
+        padding: 25px;
+    }
+
+    .quickview-panel {
+        grid-template-columns: 42% 58%;
+
+        height: min(
+            760px,
+            calc(100vh - 50px)
+        );
+    }
+
+    .quickview-content {
+        padding: 55px 45px 40px;
+    }
+
+    .quickview-title-row {
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .quickview-price {
+        align-items: flex-start;
+
+        padding-top: 0;
+    }
+
+    .quickview-price .price {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .quickview-overlay {
+        align-items: flex-end;
+
+        padding: 0;
+    }
+
+    .quickview-panel {
+        width: 100%;
+        max-width: 100%;
+
+        height: min(
+            92vh,
+            850px
+        );
+
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            280px
+            1fr;
+
+        border-radius:
+            28px 28px 0 0;
+
+        animation-name:
+            quickviewMobileIn;
+    }
+
+    .quickview-close {
+        top: 16px;
+        right: 16px;
+
+        width: 44px;
+        height: 44px;
+    }
+
+    .quickview-image {
+        min-height: 0;
+    }
+
+    .quickview-image img {
+        width: 55%;
+        height: 88%;
+    }
+
+    .quickview-image::before {
+        width: 320px;
+        height: 320px;
+    }
+
+    .quickview-badge {
+        left: 20px;
+        bottom: 18px;
+    }
+
+    .quickview-content {
+        padding:
+            32px
+            24px
+            45px;
+    }
+
+    .quickview-brand {
+        margin-bottom: 12px;
+    }
+
+    .quickview-title-row {
+        gap: 10px;
+
+        margin-bottom: 20px;
+    }
+
+    .quickview-title-row h2 {
+        font-size: 2.35rem;
+    }
+
+    .quickview-description p {
+        font-size: 14px;
+    }
+
+    .quickview-meta {
+        margin-bottom: 25px;
+    }
+
+    .quickview-top-actions {
+        gap: 9px;
+    }
+
+    .quickview-quantity {
+        width: 125px;
+    }
+
+    .quickview-cart span {
+        display: inline;
+    }
+
+    .quickview-footer {
+        align-items: flex-start;
+        flex-direction: column;
+
+        margin-top: 30px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .quickview-panel {
+        grid-template-rows:
+            245px
+            1fr;
+    }
+
+    .quickview-content {
+        padding:
+            28px
+            18px
+            40px;
+    }
+
+    .quickview-title-row h2 {
+        font-size: 2rem;
+    }
+
+    .quickview-price .price {
+        font-size: 19px;
+    }
+
+    .quickview-description {
+        margin-bottom: 20px;
+    }
+
+    .quickview-description p {
+        line-height: 1.7;
+    }
+
+    .quickview-meta {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .quickview-top-actions {
+        display: grid;
+
+        grid-template-columns:
+            115px
+            1fr;
+    }
+
+    .quickview-quantity {
+        width: 115px;
+    }
+
+    .quickview-cart span {
+        font-size: 13px;
+    }
+
+    .quickview-footer {
+        gap: 20px;
+    }
+
+    .quickview-share {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 9px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE ANIMATION
+========================================================= */
+
+@keyframes quickviewMobileIn {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .quickview-overlay,
+    .quickview-panel,
+    .quickview-image img,
+    .quickview-close,
+    .quickview-cart,
+    .quickview-buy,
+    .share-icons button {
+        animation: none;
+        transition: none;
+    }
+}

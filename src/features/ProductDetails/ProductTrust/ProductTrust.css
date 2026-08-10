@@ -1,0 +1,325 @@
+/* =========================================================
+   PRODUCT TRUST
+========================================================= */
+
+.product-trust {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+
+    margin: 70px 0 40px;
+}
+
+
+/* =========================================================
+   TRUST CARD
+========================================================= */
+
+.trust-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    min-height: 150px;
+
+    padding: 28px 26px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.065);
+
+    border-radius: 26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 27, 24, 0.86),
+            rgba(20, 18, 16, 0.72)
+        );
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =========================================================
+   SUBTLE GOLD GLOW
+========================================================= */
+
+.trust-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: -80px;
+    right: -80px;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201, 170, 113, 0.11),
+            transparent 70%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.trust-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(201, 170, 113, 0.22);
+
+    box-shadow:
+        0 25px 55px rgba(0, 0, 0, 0.20),
+        0 0 30px rgba(181, 140, 90, 0.05);
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.trust-icon {
+    position: relative;
+
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 58px;
+    height: 58px;
+
+    border: 1px solid
+        rgba(201, 170, 113, 0.22);
+
+    border-radius: 18px;
+
+    background:
+        rgba(201, 170, 113, 0.055);
+
+    color: var(--color-primary);
+
+    box-shadow:
+        inset 0 0 20px
+        rgba(201, 170, 113, 0.035);
+}
+
+
+.trust-icon svg {
+    width: 25px;
+    height: 25px;
+
+    stroke-width: 1.7;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.trust-content {
+    position: relative;
+
+    z-index: 1;
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.trust-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color:
+        rgba(255, 255, 255, 0.32);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.trust-card h4 {
+    margin: 0 0 6px;
+
+    color: var(--color-cream);
+
+    font-family: var(--font-heading);
+
+    font-size: 21px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.trust-card p {
+    margin: 0;
+
+    color:
+        rgba(255, 255, 255, 0.50);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   LARGE TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .product-trust {
+        gap: 18px;
+    }
+
+    .trust-card {
+        gap: 16px;
+
+        padding: 24px 20px;
+    }
+
+    .trust-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 16px;
+    }
+
+    .trust-card h4 {
+        font-size: 19px;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .product-trust {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        margin-top: 60px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 620px) {
+
+    .product-trust {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin: 55px 0 25px;
+    }
+
+    .trust-card {
+        min-height: 120px;
+
+        padding: 22px;
+
+        border-radius: 22px;
+    }
+
+    .trust-icon {
+        width: 50px;
+        height: 50px;
+
+        border-radius: 15px;
+    }
+
+    .trust-icon svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .trust-card h4 {
+        font-size: 20px;
+    }
+
+    .trust-card p {
+        font-size: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .trust-card {
+        gap: 14px;
+
+        padding: 20px;
+    }
+
+    .trust-icon {
+        width: 46px;
+        height: 46px;
+
+        border-radius: 14px;
+    }
+
+    .trust-card h4 {
+        font-size: 18px;
+    }
+
+}
