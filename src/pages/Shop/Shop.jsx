@@ -8,7 +8,7 @@ import Pagination from "../../features/Shop/Pagination/Pagination";
 
 import products from "../../data/products";
 
-import "../../features/Shop/ShopPage.css";
+import "../../features/Shop/shopPage.css";
 
 const PRODUCTS_PER_PAGE = 8;
 
