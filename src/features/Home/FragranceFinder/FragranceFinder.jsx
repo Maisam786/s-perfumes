@@ -166,21 +166,27 @@ export default function FragranceFinder() {
     -----------------------------------------------------
     */
 
-    const handleReset = () => {
+   const handleReset = () => {
 
-        setGender("");
+    setHasSearched(false);
+    setRecommendations([]);
 
-        setOccasion("");
+    setGender("");
+    setOccasion("");
+    setFamily("");
+    setBudget("");
 
-        setFamily("");
+    window.setTimeout(() => {
 
-        setBudget("");
+        document
+            .querySelector(".sc-finder-header")
+            ?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
 
-        setRecommendations([]);
-
-        setHasSearched(false);
-
-    };
+    }, 50);
+};
 
 
     /*
@@ -478,11 +484,10 @@ export default function FragranceFinder() {
                                         return (
 
                                             <article
-                                                className={`sc-finder-result ${
-                                                    index === 0
-                                                        ? "is-best-match"
-                                                        : ""
-                                                }`}
+                                                className={`sc-finder-result ${index === 0
+                                                    ? "is-best-match"
+                                                    : ""
+                                                    }`}
                                                 key={product.id}
                                             >
 
