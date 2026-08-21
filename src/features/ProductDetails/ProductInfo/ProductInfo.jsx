@@ -54,9 +54,9 @@ export default function ProductInfo({ product }) {
                 {product.description}
             </p>
 
-            <SizeSelector
+            {/* <SizeSelector
                 sizes={product.sizes}
-            />
+            /> */}
 
             <QuantitySelector
                 onChange={setQuantity}

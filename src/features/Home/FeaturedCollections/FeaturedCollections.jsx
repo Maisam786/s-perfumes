@@ -62,12 +62,22 @@ export default function FeaturedCollections() {
     */
 
     const scrollSlider = (direction) => {
-        if (!sliderRef.current) return;
+        const slider = sliderRef.current;
 
-        const amount =
-            sliderRef.current.clientWidth * 0.72;
+        if (!slider) return;
 
-        sliderRef.current.scrollBy({
+        const firstCard = slider.querySelector(".featured-card");
+
+        if (!firstCard) return;
+
+        const cardWidth = firstCard.getBoundingClientRect().width;
+
+        const styles = window.getComputedStyle(slider);
+        const gap = parseFloat(styles.columnGap) || 0;
+
+        const amount = cardWidth + gap;
+
+        slider.scrollBy({
             left:
                 direction === "next"
                     ? amount
@@ -190,9 +200,8 @@ export default function FeaturedCollections() {
 
                             <article
                                 key={item.id}
-                                className={`featured-card reveal delay-${
-                                    (index % 4) + 1
-                                }`}
+                                className={`featured-card reveal delay-${(index % 4) + 1
+                                    }`}
                                 role="link"
                                 tabIndex={0}
                                 onClick={() =>

@@ -7,13 +7,13 @@ const products = [
            BASIC PRODUCT IDENTITY
         ===================================================== */
 
-        slug: "royal-oud",
+        slug: "Arham",
 
-        name: "Royal Oud",
+        name: "Arham",
 
         brand: "S.",
 
-        category: "Arabic Collection",
+        category: "Men Collection",
 
         sku: "S-RO-001",
 
@@ -22,9 +22,9 @@ const products = [
            PRODUCT VARIANTS
         ===================================================== */
 
-        gender: "Unisex",
+        gender: "Male",
 
-        volume: "100ml",
+        volume: "50ml",
 
         sizes: [
             "30ml",
@@ -37,12 +37,12 @@ const products = [
            IMAGES
         ===================================================== */
 
-        image: "/products/royal-oud.png",
+        image: "/products/Arham.webp",
 
         images: [
-            "/products/royal-oud.png",
-            "/products/royal-oud-2.png",
-            "/products/royal-oud-3.png",
+            "/products/Arham.webp",
+            "/products/Arham-2.jpg",
+            "/products/Arham-3.jpg",
         ],
 
 
@@ -50,18 +50,18 @@ const products = [
            PRICING
         ===================================================== */
 
-        price: 4999,
+        price: 2600,
 
-        oldPrice: 5999,
+        oldPrice: 4000,
 
-        discount: 17,
+        discount: 35,
 
 
         /* =====================================================
            INVENTORY
         ===================================================== */
 
-        stock: 18,
+        stock: 25,
 
         inStock: true,
 
@@ -243,9 +243,9 @@ const products = [
     {
         id: 2,
 
-        slug: "midnight-noir",
+        slug: "Ghuryan",
 
-        name: "Midnight Noir",
+        name: "Ghuryan",
 
         brand: "S.",
 
@@ -256,7 +256,7 @@ const products = [
 
         gender: "Men",
 
-        volume: "100ml",
+        volume: "50ml",
 
         sizes: [
             "30ml",
@@ -265,23 +265,23 @@ const products = [
         ],
 
 
-        image: "/products/midnight-noir.png",
+        image: "/products/Ghuryan.webp",
 
         images: [
-            "/products/midnight-noir.png",
-            "/products/midnight-noir-2.png",
-            "/products/midnight-noir-3.png",
+            "/products/Ghuryan.webp",
+            "/products/Ghuryan-2.webp",
+            "/products/Ghuryan-3.jpg",
         ],
 
 
-        price: 3899,
+        price: 3500,
 
-        oldPrice: 4599,
+        oldPrice: 5000,
 
-        discount: 15,
+        discount: 30,
 
 
-        stock: 24,
+        stock: 30,
 
         inStock: true,
 
@@ -389,9 +389,9 @@ const products = [
     {
         id: 3,
 
-        slug: "velvet-rose",
+        slug: "Gucci Flora",
 
-        name: "Velvet Rose",
+        name: "Gucci Flora",
 
         brand: "S.",
 
@@ -402,7 +402,7 @@ const products = [
 
         gender: "Women",
 
-        volume: "100ml",
+        volume: "50ml",
 
         sizes: [
             "30ml",
@@ -411,20 +411,20 @@ const products = [
         ],
 
 
-        image: "/products/velvet-rose.png",
+        image: "/products/Gucci-Flora.jpg",
 
         images: [
-            "/products/velvet-rose.png",
-            "/products/velvet-rose-2.png",
-            "/products/velvet-rose-3.png",
+            "/products/Gucci-Flora.jpg",
+            "/products/Gucci-Flora-2.jpg",
+            "/products/Gucci-Flora-3.jpg",
         ],
 
 
-        price: 4299,
+        price: 2000,
 
-        oldPrice: 4899,
+        oldPrice: 4000,
 
-        discount: 12,
+        discount: 50,
 
 
         stock: 20,
@@ -534,20 +534,20 @@ const products = [
     {
         id: 4,
 
-        slug: "amber-prestige",
+        slug: "Al-Hassan",
 
-        name: "Amber Prestige",
+        name: "Al-Hassan",
 
         brand: "S.",
 
-        category: "Signature Collection",
+        category: "Arabic Collection",
 
         sku: "S-AP-004",
 
 
         gender: "Unisex",
 
-        volume: "100ml",
+        volume: "50ml",
 
         sizes: [
             "30ml",
@@ -556,20 +556,20 @@ const products = [
         ],
 
 
-        image: "/products/amber-prestige.png",
+        image: "/products/Al-Hassan.webp",
 
         images: [
-            "/products/amber-prestige.png",
-            "/products/amber-prestige-2.png",
-            "/products/amber-prestige-3.png",
+            "/products/Al-Hassan.webp",
+            "/products/Al-Hassan-2.webp",
+            "/products/Al-Hassan-3.webp",
         ],
 
 
-        price: 5499,
+        price: 4920,
 
-        oldPrice: 6499,
+        oldPrice: 6000,
 
-        discount: 15,
+        discount: 18,
 
 
         stock: 10,

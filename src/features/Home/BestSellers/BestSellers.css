@@ -3,10 +3,10 @@ BEST SELLERS
 ========================================================= */
 
 .best-sellers {
-    position: relative;
-    padding: var(--section-padding) 0;
-    overflow: hidden;
-    isolation: isolate;
+  position: relative;
+  padding: var(--section-padding) 0;
+  overflow: hidden;
+  isolation: isolate;
 }
 
 /* =========================================================
@@ -15,17 +15,17 @@ Reuses the global luxury glow system.
 ========================================================= */
 
 .best-sellers .luxury-glow {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 .best-sellers .luxury-glow--top-right {
-    top: -360px;
-    right: -280px;
+  top: -360px;
+  right: -280px;
 }
 
 .best-sellers .luxury-glow--bottom-left {
-    bottom: -380px;
-    left: -300px;
+  bottom: -380px;
+  left: -300px;
 }
 
 /* =========================================================
@@ -33,8 +33,8 @@ CONTAINER
 ========================================================= */
 
 .best-sellers .container {
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
 }
 
 /* =========================================================
@@ -42,16 +42,16 @@ HEADING
 ========================================================= */
 
 .best-heading {
-    margin-bottom: 76px;
+  margin-bottom: 76px;
 }
 
 .best-heading h2 {
-    max-width: 760px;
-    margin-inline: auto;
+  max-width: 760px;
+  margin-inline: auto;
 }
 
 .best-heading p {
-    max-width: 650px;
+  max-width: 650px;
 }
 
 /* =========================================================
@@ -59,33 +59,60 @@ PRODUCT SLIDER
 ========================================================= */
 
 .products-slider-wrapper {
-    position: relative;
-    width: 100%;
+  position: relative;
+  width: 100%;
+  overflow: visible;
 }
 
 .products-slider {
-    display: flex;
-    align-items: stretch;
-    gap: 30px;
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
 
-    width: 100%;
+  width: 100%;
 
-    overflow-x: auto;
-    overflow-y: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 
-    padding: 12px 8px 34px;
+  padding: 12px 14px 38px;
+  scroll-padding-inline: 14px;
 
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
+  /*
+     * Smooth programmatic movement.
+     * Manual touch/trackpad scrolling remains natural.
+     */
+  scroll-behavior: smooth;
 
-    scrollbar-width: none;
+  /*
+     * Let the browser settle naturally instead of
+     * aggressively forcing a card into position.
+     */
+  scroll-snap-type: x proximity;
 
-    -webkit-overflow-scrolling: touch;
+  /*
+     * Keep the first/last card aligned with the
+     * slider's inner padding.
+     */
+  scroll-padding-inline: 8px;
 
+  /*
+     * Prevent horizontal scrolling from leaking
+     * into another scroll container.
+     */
+  overscroll-behavior-x: contain;
+
+  scrollbar-width: none;
+
+  -webkit-overflow-scrolling: touch;
+
+  /*
+     * Slightly improve compositing during scrolling.
+     */
+  transform: translateZ(0);
 }
 
 .products-slider::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* =========================================================
@@ -93,14 +120,18 @@ PRODUCT SLIDE
 ========================================================= */
 
 .product-slide {
-    flex: 0 0 365px;
+  flex: 0 0 365px;
 
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
+  min-width: 0;
 
-    min-width: 0;
-    transition: transform 700ms cubic-bezier(.22, 1, .36, 1);
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 
+  /*
+     * Don't animate the actual slide with transform.
+     * The browser's scroll position should control movement.
+     */
+  will-change: auto;
 }
 
 /* =========================================================
@@ -108,60 +139,62 @@ PRODUCT NAVIGATION
 ========================================================= */
 
 .products-arrow {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
+  position: absolute;
+  top: 50%;
+  z-index: 10;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    width: 56px;
-    height: 56px;
+  width: 56px;
+  height: 56px;
 
-    border: 1px solid rgba(255, 255, 255, .10);
-    border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
 
-    background: rgba(21, 18, 16, 0.72);
+  background: rgba(21, 18, 16, 0.72);
 
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 
-    color: var(--text-primary);
+  color: var(--text-primary);
 
-    font-size: 20px;
+  font-size: 20px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transform: translateY(-50%);
+  transform: translateY(-50%);
 
-    transition: transform 550ms cubic-bezier(.22, 1, .36, 1), background 450ms ease, border-color 450ms ease, color 450ms ease, box-shadow 550ms ease;
-
+  transition:
+    transform 550ms cubic-bezier(0.22, 1, 0.36, 1),
+    background 450ms ease,
+    border-color 450ms ease,
+    color 450ms ease,
+    box-shadow 550ms ease;
 }
 
 .products-arrow:hover {
-    background: var(--color-primary);
-    border-color: var(--color-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 
-    color: #14110F;
+  color: #14110f;
 
-    transform: translateY(-50%) scale(1.06);
+  transform: translateY(-50%) scale(1.06);
 
-    box-shadow:
-        0 14px 35px rgba(201, 170, 113, 0.20);
-
+  box-shadow: 0 14px 35px rgba(201, 170, 113, 0.2);
 }
 
 .products-arrow:active {
-    transform: translateY(-50%) scale(0.96);
+  transform: translateY(-50%) scale(0.96);
 }
 
 .products-arrow--left {
-    left: -28px;
+  left: -28px;
 }
 
 .products-arrow--right {
-    right: -28px;
+  right: -28px;
 }
 
 /* =========================================================
@@ -169,40 +202,35 @@ PRODUCT SLIDER EDGE FADE
 Subtle visual indication that more products exist.
 ========================================================= */
 
+/* =========================================================
+   PRODUCT SLIDER EDGE FADE
+   Subtle edge indication without covering product cards.
+========================================================= */
+
 .products-slider-wrapper::before,
 .products-slider-wrapper::after {
-    content: "";
+  content: "";
 
-    position: absolute;
-    top: 0;
-    bottom: 24px;
+  position: absolute;
+  top: 12px;
+  bottom: 38px;
 
-    width: 70px;
+  width: 28px;
+  z-index: 1;
 
-    z-index: 3;
-
-    pointer-events: none;
-
+  pointer-events: none;
 }
 
 .products-slider-wrapper::before {
-    left: 0;
+  left: 0;
 
-    background:
-        linear-gradient(90deg,
-            var(--color-background),
-            transparent);
-
+  background: linear-gradient(90deg, var(--color-background), transparent);
 }
 
 .products-slider-wrapper::after {
-    right: 0;
+  right: 0;
 
-    background:
-        linear-gradient(270deg,
-            var(--color-background),
-            transparent);
-
+  background: linear-gradient(270deg, var(--color-background), transparent);
 }
 
 /* =========================================================
@@ -210,81 +238,74 @@ RESPONSIVE
 ========================================================= */
 
 @media (max-width: 1200px) {
+  .product-slide {
+    flex-basis: 335px;
+  }
 
-    .product-slide {
-        flex-basis: 335px;
-    }
+  .products-arrow--left {
+    left: -18px;
+  }
 
-    .products-arrow--left {
-        left: -18px;
-    }
-
-    .products-arrow--right {
-        right: -18px;
-    }
-
+  .products-arrow--right {
+    right: -18px;
+  }
 }
 
 @media (max-width: 992px) {
+  .best-heading {
+    margin-bottom: 60px;
+  }
 
-    .best-heading {
-        margin-bottom: 60px;
-    }
+  .products-slider {
+    gap: 24px;
+  }
 
-    .products-slider {
-        gap: 24px;
-    }
+  .product-slide {
+    flex-basis: 320px;
+  }
 
-    .product-slide {
-        flex-basis: 320px;
-    }
-
-    .products-arrow {
-        width: 50px;
-        height: 50px;
-    }
-
+  .products-arrow {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 @media (max-width: 768px) {
+  .best-heading {
+    margin-bottom: 46px;
+  }
 
-    .best-heading {
-        margin-bottom: 46px;
-    }
+  .products-slider {
+    gap: 18px;
 
-    .products-slider {
-        gap: 18px;
+    padding: 8px 8px 28px;
 
-        padding:
-            8px 8px 28px;
-    }
+    scroll-padding-inline: 8px;
+  }
 
-    .product-slide {
-        flex: 0 0 82vw;
-        max-width: 360px;
-    }
+  .product-slide {
+    flex: 0 0 82vw;
+    max-width: 360px;
+  }
 
-    .products-arrow {
-        display: none;
-    }
+  .products-arrow {
+    display: none;
+  }
 
-    .products-slider-wrapper::before,
-    .products-slider-wrapper::after {
-        display: none;
-    }
-
+  .products-slider-wrapper::before,
+  .products-slider-wrapper::after {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
+  .product-slide {
+    flex-basis: 86vw;
+  }
 
-    .product-slide {
-        flex-basis: 86vw;
-    }
-
-    .products-slider {
-        padding-inline: 4px;
-    }
-
+  .products-slider {
+    padding-inline: 4px;
+  }
 }
 
 /* =========================================================
@@ -292,14 +313,12 @@ REDUCED MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+  .products-slider {
+    scroll-behavior: auto;
+  }
 
-    .products-slider {
-        scroll-behavior: auto;
-    }
-
-    .products-arrow,
-    .product-slide {
-        transition: none;
-    }
-
+  .products-arrow,
+  .product-slide {
+    transition: none;
+  }
 }

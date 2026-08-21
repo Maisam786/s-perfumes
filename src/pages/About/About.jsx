@@ -79,7 +79,7 @@ export default function About() {
                         <div className="about-story-image">
 
                             <img
-                                src="/about/story.jpg"
+                                src="/about/story.webp"
                                 alt="S. luxury perfume"
                             />
 

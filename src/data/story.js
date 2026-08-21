@@ -12,7 +12,7 @@ A Memory`,
 It is identity, confidence, emotion and timeless elegance.
 Every bottle is created with carefully selected ingredients to transform ordinary moments into unforgettable memories.`,
 
-    image: "/story/story-perfume.jpg",
+    image: "/story/story-perfume.webp",
 
 };
 

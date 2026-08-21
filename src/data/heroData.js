@@ -1,7 +1,7 @@
 const heroSlides = [
   {
     id: 1,
-    image: "/hero/hero-1.jpg",
+    image: "/hero/hero-1.png",
     subtitle: "S. LUXURY PERFUMES",
     title: "Wear\nConfidence.",
     description:
@@ -10,7 +10,7 @@ const heroSlides = [
 
   {
     id: 2,
-    image: "/hero/hero-2.jpg",
+    image: "/hero/hero-2.webp",
     subtitle: "EXCLUSIVE COLLECTION",
     title: "Inspired\nBy Nature.",
     description:
@@ -19,7 +19,7 @@ const heroSlides = [
 
   {
     id: 3,
-    image: "/hero/hero-3.jpg",
+    image: "/hero/hero-3.png",
     subtitle: "ARABIAN OUD",
     title: "Pure\nLuxury.",
     description:
@@ -28,7 +28,7 @@ const heroSlides = [
 
   {
     id: 4,
-    image: "/hero/hero-4.jpg",
+    image: "/hero/hero-4.png",
     subtitle: "SIGNATURE SCENT",
     title: "Leave\nA Memory.",
     description:
@@ -37,7 +37,7 @@ const heroSlides = [
 
   {
     id: 5,
-    image: "/hero/hero-5.jpg",
+    image: "/hero/hero-5.png",
     subtitle: "LIMITED EDITION",
     title: "Timeless\nElegance.",
     description:
