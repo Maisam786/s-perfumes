@@ -73,6 +73,7 @@ PRODUCT SLIDER
 
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-y pan-x;
 
   padding: 12px 14px 38px;
   scroll-padding-inline: 14px;
@@ -100,6 +101,7 @@ PRODUCT SLIDER
      * into another scroll container.
      */
   overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
 
   scrollbar-width: none;
 

@@ -70,6 +70,7 @@
 
   overflow-x: auto;
   overflow-y: hidden;
+  touch-action: pan-y pan-x;
 
   padding: 10px 8px 34px;
 
@@ -84,6 +85,7 @@
   scroll-padding-inline: 8px;
 
   overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
 
   scrollbar-width: none;
 
@@ -100,11 +102,6 @@
   display: none;
 }
 
-.products-slider,
-.featured-slider {
-    touch-action: pan-x;
-    overscroll-behavior-x: contain;
-}
 /* =========================================================
    CARD
 ========================================================= */

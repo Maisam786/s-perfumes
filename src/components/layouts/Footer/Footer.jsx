@@ -56,15 +56,15 @@ export default function Footer() {
 
                         <h4>Shop</h4>
 
-                        <NavLink to="/collections/men">
+                        <NavLink to="/shop?category=men">
                             Men
                         </NavLink>
 
-                        <NavLink to="/collections/women">
+                        <NavLink to="/shop?category=women">
                             Women
                         </NavLink>
 
-                        <NavLink to="/collections/arabic">
+                        <NavLink to="/shop?category=arabic">
                             Arabic
                         </NavLink>
 

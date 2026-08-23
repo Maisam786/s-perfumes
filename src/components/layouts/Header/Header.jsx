@@ -1,7 +1,7 @@
 import "./Header.css";
 
-import { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import {
     FiChevronDown,
@@ -24,6 +24,18 @@ export default function Header() {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
+
+    const [megaMenuClosed, setMegaMenuClosed] = useState(false);
+    const megaParentRef = useRef(null);
+    const navigate = useNavigate();
+
+    const closeMegaMenu = () => {
+        setMegaMenuClosed(true);
+    };
+
+    const handleMegaParentMouseLeave = () => {
+        setMegaMenuClosed(false);
+    };
 
     const { cartItems } = useCart();
     const { wishlistItems } = useWishlist();
@@ -71,9 +83,8 @@ export default function Header() {
                     {/* Mobile Menu Toggle */}
                     <button
                         type="button"
-                        className={`mobile-toggle ${
-                            mobileOpen ? "is-open" : ""
-                        }`}
+                        className={`mobile-toggle ${mobileOpen ? "is-open" : ""
+                            }`}
                         onClick={() =>
                             setMobileOpen((previous) => !previous)
                         }
@@ -104,9 +115,8 @@ export default function Header() {
 
                     {/* Navigation */}
                     <nav
-                        className={`desktop-nav mobile-menu-panel ${
-                            mobileOpen ? "active" : ""
-                        }`}
+                        className={`desktop-nav mobile-menu-panel ${mobileOpen ? "active" : ""
+                            }`}
                         aria-label="Primary navigation"
                     >
                         <NavLink
@@ -120,7 +130,12 @@ export default function Header() {
                         </NavLink>
 
                         {/* Collections */}
-                        <div className="mega-parent">
+                        <div
+                            ref={megaParentRef}
+                            className={`mega-parent ${megaMenuClosed ? "mega-menu-closed" : ""
+                                }`}
+                            onMouseLeave={handleMegaParentMouseLeave}
+                        >
                             <button
                                 type="button"
                                 className="mega-trigger"
@@ -130,7 +145,9 @@ export default function Header() {
                                 <FiChevronDown />
                             </button>
 
-                            <MegaMenu />
+                            <MegaMenu
+                                onCollectionClick={closeMegaMenu}
+                            />
                         </div>
 
                         <NavLink
@@ -195,11 +212,10 @@ export default function Header() {
                         <Link
                             to="/wishlist"
                             className="icon-btn cart"
-                            aria-label={`Wishlist${
-                                wishlistCount
-                                    ? `, ${wishlistCount} items`
-                                    : ""
-                            }`}
+                            aria-label={`Wishlist${wishlistCount
+                                ? `, ${wishlistCount} items`
+                                : ""
+                                }`}
                         >
                             <FiHeart />
 
@@ -217,11 +233,10 @@ export default function Header() {
                             onClick={() =>
                                 setCartDrawerOpen(true)
                             }
-                            aria-label={`Shopping bag${
-                                cartCount
-                                    ? `, ${cartCount} items`
-                                    : ""
-                            }`}
+                            aria-label={`Shopping bag${cartCount
+                                ? `, ${cartCount} items`
+                                : ""
+                                }`}
                         >
                             <FiShoppingBag />
 

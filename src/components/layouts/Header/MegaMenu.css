@@ -42,12 +42,18 @@
    OPEN STATE
 ========================================= */
 
-.mega-parent:hover .mega-menu {
+.mega-parent:hover .mega-menu:not(.force-hidden) {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-
     transform: translate3d(-50%, 0, 0);
+}
+
+.mega-parent.mega-menu-closed:hover .mega-menu {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate3d(-50%, 18px, 0);
 }
 
 

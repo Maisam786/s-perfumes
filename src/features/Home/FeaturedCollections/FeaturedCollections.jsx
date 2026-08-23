@@ -1,6 +1,7 @@
 import "./FeaturedCollections.css";
 
 import { useRef } from "react";
+import useHorizontalSwipe from "../../../hooks/useHorizontalSwipe";
 import { useNavigate } from "react-router-dom";
 import {
     FiArrowLeft,

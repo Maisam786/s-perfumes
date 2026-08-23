@@ -1,6 +1,7 @@
 import "./BestSellers.css";
 
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
+import useHorizontalSwipe from "../../../hooks/useHorizontalSwipe";
 
 import QuickView from "../../../components/Common/QuickView/QuickView";
 import ProductCard from "../../../components/Common/ProductCard/ProductCard";

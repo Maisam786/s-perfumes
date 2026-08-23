@@ -1,25 +1,25 @@
 import "./MegaMenu.css";
 
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const collections = [
     {
         title: "Men",
         subtitle: "Bold • Woody • Signature",
         image: "/collections/men.jpg",
-        link: "/collections/men",
+        link: "/shop?category=men",
     },
     {
         title: "Women",
         subtitle: "Elegant • Floral • Luxury",
         image: "/collections/women.jpg",
-        link: "/collections/women",
+        link: "/shop?category=women",
     },
     {
         title: "Arabic",
         subtitle: "Oud • Oriental • Prestige",
         image: "/collections/arabic.jpg",
-        link: "/collections/arabic",
+        link: "/shop?category=arabic",
     },
     {
         title: "Gift Sets",
@@ -29,7 +29,19 @@ const collections = [
     },
 ];
 
-export default function MegaMenu() {
+export default function MegaMenu({ onCollectionClick }) {
+    const navigate = useNavigate();
+
+    const handleCollectionClick = (event, link) => {
+        event.preventDefault();
+
+        // Navigate immediately.
+        navigate(link);
+
+        // Remove focus from the clicked card.
+        event.currentTarget.blur();
+    };
+
     return (
         <div className="mega-menu">
             <div className="mega-top">
@@ -48,6 +60,7 @@ export default function MegaMenu() {
                         key={collection.title}
                         to={collection.link}
                         className="mega-card"
+                        onClick={onCollectionClick}
                     >
                         <img
                             src={collection.image}
