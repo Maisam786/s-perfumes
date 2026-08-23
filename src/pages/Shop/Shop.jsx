@@ -10,9 +10,11 @@ import products from "../../data/products";
 
 import "../../features/Shop/shopPage.css";
 
-const PRODUCTS_PER_PAGE = 8;
+const PRODUCTS_PER_PAGE = 6;
 
 export default function Shop() {
+
+    const [viewMode, setViewMode] = useState("grid");
     /* =========================================================
        FILTER STATE
     ========================================================= */
@@ -203,8 +205,8 @@ export default function Shop() {
 
                         <aside
                             className={`shop-sidebar-wrapper ${filtersOpen
-                                    ? "is-open"
-                                    : ""
+                                ? "is-open"
+                                : ""
                                 }`}
                         >
                             <ShopSidebar
@@ -236,6 +238,8 @@ export default function Shop() {
                                 }
                                 sortBy={sortBy}
                                 setSortBy={setSortBy}
+                                viewMode={viewMode}
+                                setViewMode={setViewMode}
                                 onFilterToggle={() =>
                                     setFiltersOpen(
                                         (previous) =>
@@ -251,9 +255,10 @@ export default function Shop() {
                                 0 ? (
                                 <>
                                     <ShopGrid
-                                        products={
-                                            paginatedProducts
-                                        }
+                                        key={currentPage}
+                                        viewMode={viewMode}
+                                        products={paginatedProducts}
+
                                     />
 
                                     {totalPages > 1 && (

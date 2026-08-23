@@ -31,7 +31,7 @@ export default function InstagramGallery() {
                     </span>
 
                     <h2 id="instagram-gallery-title">
-                        @s.perfumes
+                        S Dot Perfumes
                     </h2>
 
                     <p>
@@ -61,7 +61,7 @@ export default function InstagramGallery() {
                             />
 
                             <a
-                                href="https://instagram.com/s.perfumes"
+                                href="https://www.facebook.com/share/1GXN249AMQ/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="gallery-overlay"

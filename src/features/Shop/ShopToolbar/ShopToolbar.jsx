@@ -7,6 +7,8 @@ export default function ShopToolbar({
     originalTotal,
     sortBy,
     setSortBy,
+    viewMode,
+    setViewMode,
 }) {
     return (
         <div className="shop-toolbar">
@@ -81,22 +83,38 @@ export default function ShopToolbar({
                     className="view-buttons"
                     aria-label="Product view"
                 >
-
                     <button
                         type="button"
-                        className="active"
+                        className={
+                            viewMode === "grid"
+                                ? "active"
+                                : ""
+                        }
                         aria-label="Grid view"
-                        aria-pressed="true"
+                        aria-pressed={
+                            viewMode === "grid"
+                        }
+                        onClick={() =>
+                            setViewMode("grid")
+                        }
                     >
                         <FiGrid />
                     </button>
 
                     <button
                         type="button"
-                        className="view-button-disabled"
-                        aria-label="List view unavailable"
-                        aria-pressed="false"
-                        disabled
+                        className={
+                            viewMode === "list"
+                                ? "active"
+                                : ""
+                        }
+                        aria-label="List view"
+                        aria-pressed={
+                            viewMode === "list"
+                        }
+                        onClick={() =>
+                            setViewMode("list")
+                        }
                     >
                         <FiList />
                     </button>

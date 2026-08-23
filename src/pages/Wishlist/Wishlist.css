@@ -241,10 +241,9 @@
 }
 
 .wishlist-image-wrap img {
-    width: 82%;
-    height: 88%;
-
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 
     transition:
         transform 1s cubic-bezier(.16, 1, .3, 1),

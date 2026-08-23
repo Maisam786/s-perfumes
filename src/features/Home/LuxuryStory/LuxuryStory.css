@@ -199,6 +199,8 @@
     max-width: 520px;
     height: auto;
 
+    border-radius: 25px;
+
     transition:
         transform 0.9s ease;
 }
